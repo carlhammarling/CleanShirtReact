@@ -3,15 +3,15 @@ import "./Products.scss";
 import ProductsBanner from "../../components/Banners/ProductsBanner/ProductsBanner";
 import GalleryProductCard from "../../components/Cards/GalleryProductCard/GalleryProductCard";
 import axios from 'axios'
+import Loading from "../../components/Loading/Loading";
 
 const Products = () => {
 
-  const [products, setProducts] = useState()
+  const [products, setProducts] = useState(null)
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/products")
       .then((res) => {
-        // console.log(res.data)
         setProducts(res.data)
       })
       .catch((err) => {
@@ -24,7 +24,7 @@ const Products = () => {
   }, [products])
 
   if(!products) {
-    return <p>Loading...</p>
+    return <Loading />
   }
   return (
     
