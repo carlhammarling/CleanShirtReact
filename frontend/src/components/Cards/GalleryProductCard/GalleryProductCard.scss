@@ -1,0 +1,37 @@
+@use "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.prodCard {
+  @include mixin.flex(column, flex-start, stretch);
+
+  a {
+    @include mixin.flex(column, flex-start, stretch);
+  }
+
+  img {
+    height: 220px;
+    object-fit: cover;
+
+    @media (min-width: 600px) {
+      height: 330px;
+    }
+
+    @media (min-width: 800px) {
+      height: 440px;
+    }
+  }
+
+  .prodBot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 5em;
+  }
+  .buy {
+    @include mixin.flex(row, space-between, center);
+  }
+
+  .addBtn {
+    @include mixin.addBtn;
+  }
+}

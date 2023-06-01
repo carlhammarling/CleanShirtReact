@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./HomeProductSelection.scss";
-import SelectedProduct from "../SelectedProduct/SelectedProduct";
+import SelectedProduct from "../../Cards/SelectedProduct/SelectedProduct";
 
 const HomeProductSelection = () => {
 

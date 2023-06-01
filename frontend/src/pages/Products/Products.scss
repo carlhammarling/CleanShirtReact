@@ -1,0 +1,42 @@
+@use "../../styles/mixin";
+@import "../../styles/variables";
+
+.products {
+  @include mixin.flex(column, flex-start, stretch);
+  align-self: center;
+  margin: 0 10px;
+
+  @media (min-width: 600px) {
+    font-size: 120%;
+  }
+
+  @media (min-width: 800px) {
+    margin: 0 20px;
+    font-size: 140%;
+  }
+  article {
+    @include mixin.flex(column, flex-start, stretch);
+    margin-bottom: 10px;
+
+    @media (min-width: 800px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .prodWrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    column-gap: 10px;
+    row-gap: 15px;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    @media (min-width: 800px) {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      column-gap: 20px;
+      row-gap: 30px;
+    }
+  }
+}
