@@ -1,0 +1,81 @@
+@use "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.homeBanner {
+  background-color: $yellow;
+  padding: 3%;
+  @include mixin.flex(column, flex-start, stretch);
+  margin-bottom: 10px;
+
+  #hangOut {
+    display: none;
+    margin-left: 1rem;
+  }
+  @media (min-width: 650px) {
+    @include mixin.flex(row, space-between, stretch);
+    #girlPower {
+      display: none;
+    }
+  }
+  @media (min-width: 800px) {
+    #hangOut {
+      display: flex;
+      height: 200px;
+    }
+  }
+  @media (min-width: 950px) {
+  }
+
+  @media (min-width: 1100px) {
+    #hangOut {
+      height: 300px;
+    }
+  }
+
+  .slogan {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    min-width: 325px;
+
+    span {
+      color: white;
+      background: $darkGrey;
+      padding: 0.1rem 0.3rem;
+    }
+    @media (min-width: 950px) {
+      // flex-basis: 0;
+      // flex-grow: 1;
+      font-size: 120%;
+    }
+  }
+
+  .bottom {
+    @include mixin.flex(row, flex-end, flex-end);
+    // padding: 10px;
+    width: 80%;
+    align-self: flex-end;
+
+    @media (min-width: 500px) {
+      width: 60%;
+
+      @media (min-width: 950px) {
+        flex-basis: 0;
+        flex-grow: 1;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      height: 335px;
+
+      @media (min-width: 500px) {
+        height: 400px;
+      }
+
+      @media (min-width: 650px) {
+        height: 600px;
+      }
+      // width: 275px;
+    }
+  }
+}

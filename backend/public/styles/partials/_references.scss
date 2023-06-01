@@ -1,0 +1,73 @@
+@mixin references {
+    
+    margin: 0 10px;
+        article {
+        display: grid;
+        justify-content: center;
+        margin-bottom: 10px;
+        line-height: 1.5;
+
+        @media (min-width: 630px) {
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-weight: 200;
+        }
+        img {
+            width: 100%;
+            max-width: 600px;
+            object-fit: cover;
+            @media (min-width: 800px) {
+                object-fit: cover;
+                height: 100%;
+            }
+            
+        }
+
+        section {
+            max-width: 600px;
+            & > * {
+                margin-block: .5rem
+            }
+            @media (min-width: 800px) {
+                margin-top: 0;
+            }
+        }
+
+        #selectToCart {
+
+            form {
+                @include form;
+                #size {
+                    padding: 0 0.3rem;
+                }
+                label {
+                    font-family: 'Abel', sans-serif; 
+                }
+
+            }
+            
+            button {
+                @include bigAddBtn;
+                width: 100%;
+            }
+
+        }
+        #reviewList {
+            padding: 10px;
+            border: 1px solid $medGrey;
+            
+
+            .review {
+                margin-top: 1.2rem;
+            }
+        }
+        @media (min-width: 800px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 0 20px;
+        }
+    }    
+}

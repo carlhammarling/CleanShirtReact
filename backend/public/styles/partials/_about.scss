@@ -1,0 +1,81 @@
+@mixin about {
+    margin: 0 10px;
+    @include flex(column, flex-start, center);
+
+    @media (min-width: 800px) {
+        margin: 0 20px;
+        font-size: 120%;
+    }
+   
+
+    article {
+        margin-bottom: 10px;
+        max-width: 800px;
+        @media (min-width: 630px) {
+            margin-bottom: 20px;
+        }
+    }
+    .aboutBanner {
+        @include flex(column, center, center);
+        position: relative;
+        z-index: -1;
+
+        img {
+            transform: scaleX(-1);
+        }       
+
+        .slogan {
+            padding: 27px;
+            position: absolute;
+            span {
+                @include logo; 
+            }
+        }       
+    }
+
+    .aboutInfo > *{
+        @include flex (column, flex-start, center);
+
+        h1, h2 {
+            color: $yellow;
+            margin: 1rem 0;
+            background: $darkGrey;
+            padding: .03em .1em;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+    }
+
+    .team {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+        .empCard {
+            @include flex(column, flex-start, stretch);
+            // min-width: 300px;
+            max-width: 350px;
+            flex-grow: 1;
+            min-height: 437px;
+            border-radius: .5rem;
+            margin: 1rem;
+
+            img {
+                height: 250px; 
+                object-fit: cover;         
+                border-radius: .5rem .5rem 0 0;
+                object-position: 20% 20%;
+            }
+    
+            .empBot {
+                border-radius: 0 0 .5rem .5rem;
+                border: 1px solid $grey;
+                padding: 1rem;
+            }
+        }
+    }
+
+    
+
+}
+

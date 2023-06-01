@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLEAN SHIRT - Clean style with a clean conciense.</title>
+    <!-- ADDED FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Inter:wght@100;200;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- SASS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://kit.fontawesome.com/6b00557f43.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="top">
+            <div class="topLeft">
+                <nav data-dropdown>
+                    <button aria-label="Menu" class="link" data-dropdown-button><i class="fa-solid fa-bars fa-sm" data-dropdown-button></i></button> 
+                    <div class="dropDownMenu">
+                        <ul>
+                            <li>
+                                <a href="./index.html">Home</a> 
+                            </li>
+                            <li>
+                                <a href="./products.html">Products</a>
+                            </li>
+                            <li>
+                                <a href="./references.html">Reviews</a>
+                            </li>
+                            <li>
+                                <a href="./about.html">About</a>
+                            </li>
+                            <li>
+                                <a href="./contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>                
+                </nav>
+                <div class="logo">
+                    <img src="./styles/images/cleanshirtcolor.png" alt="Clean Shirt Logo" width="130">
+                    <p> - CONTACT</p>
+                </div>
+            </div>
+            <ul class="topRight">
+                <li id="heart">
+                    <a aria-label="Saved items" href="./index.html">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                </li>              
+                <li>
+                    <a aria-label="Shopping cart" href="./index.html">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </li>
+            </ul>
+
+        </div>             
+        <div class="search">
+            <div class="logo">
+                <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </div>
+            <input type="search" placeholder="Search">
+        </div>
+    </header>
+
+    <!-- MAION CONTENT  -->
+    <main class="contact border">
+        <!--TOPIMG-->
+        <article class="contactBanner">
+            <img src="./styles/images/office.jpg" alt="Clean Shirt HQ" style="width: 100%">
+            <section class="slogan border">
+                <h1 class="medium white">VISIT OUR HEADQUARTER</h1>
+                    <h1 class="light white">IN SANTO DOMINGO<br>
+                        <span class="black">CLEAN SHiRT!</span>
+                    </h1>  
+            </section>
+        </article>
+
+        <!-- ARTICLES -->
+        <article class="contactInfo">
+            <section>
+                <h1>Where to find us.</h1>
+                <p>Clean Shirt International LTD</p>
+                <p>Calle de Cruz 420, Santo Domingo, Republica Dominicana</p>
+                <p>Phone: +1-809-792-0442</p>    
+            </section>
+            <section>
+                <h2>Get in touch:</h2>
+
+                <form id="contact">
+                    <div id="msgForm" class="form">
+                        <div class="input-group">
+                            <label class="label" for="msg">Message:</label>
+                            <textarea class="input" id="msg" rows="30" cols="10"></textarea>
+                        </div>                     
+                        <div class="input-group">
+                            <label class="label" for="name">Full Name:</label>
+                            <input class="input" type="text" id="name">
+                        </div>                      
+                        <div class="input-group">
+                            <label class="label" for="email">Email:</label>
+                            <input class="input" type="email" id="email">
+                        </div>
+                        <div class="input-group">
+                            <label class="label" for="category">Category:</label>
+                            <select class="input" name="category" id="category">
+                                <option selected disabled hidden value="category">Choose a category</option>
+                                <option value="company">Company Questions</option>
+                                <option value="products">Product Questions</option>
+                                <option value="complaints">Website Complaints</option>
+                            </select>
+                        </div>
+                        <button class="btnShop" id="send">SEND REQUEST</button>                
+                    </div>
+                </form>
+                
+            </section>
+        </article>
+        
+    </main>
+
+
+    <!-- FOOTER  -->
+    <footer>
+        <div class="footTop">
+            <ul>
+                <li>
+                    <a href="./index.html">Home</a> 
+                </li>
+                <li>
+                    <a href="./products.html">Products</a>
+                </li>
+                <li>
+                    <a href="./references.html">Reviews</a>
+                </li>
+                <li>
+                    <a href="./about.html">About</a>
+                </li>
+                <li>
+                    <a href="./contact.html">Contact</a>
+                </li>
+            </ul>
+            <img src="./styles/images/cleanshirtcolor.png" alt="Clean Shirt Logo" width="120">
+            <p>Free shipping over 100$ |  Terms & Conditions Security & Cookies |  Sign up for our newspaper.</p>
+        </div>
+        <div class="footBottom">
+            
+            <p>Ⓒ CLEAN SHiRT 2022</p>
+        </div>
+
+    </footer>
+    <script src="./contact.js"></script>
+    <script src="./scriptmeny.js"></script>
+</body>
+</html>
+

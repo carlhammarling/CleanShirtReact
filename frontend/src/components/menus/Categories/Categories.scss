@@ -1,0 +1,16 @@
+@use "../../../styles/mixin";
+
+.categories {
+  @include mixin.flex(column, flex-start, stretch);
+    margin-bottom: 10px;
+    line-height: 2rem;
+    h2 {
+      text-align: center;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      margin: 0 0.5rem;
+    }
+  }

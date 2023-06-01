@@ -1,0 +1,10 @@
+@use '../../styles/mixin';
+
+.wrapper {
+    @include mixin.flex(column, flex-start, stretch);
+    height: 100dvh;
+
+    .siteFlex {
+        flex: 1;
+    }
+}

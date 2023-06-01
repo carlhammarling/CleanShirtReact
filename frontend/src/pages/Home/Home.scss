@@ -1,0 +1,22 @@
+@use "../../styles/mixin";
+@import "../../styles/variables";
+
+.home {
+  margin: 0 10px;
+  @include mixin.flex(column, flex-start, stretch);
+
+  @media (min-width: 650px) {
+    margin: 0 20px;
+  }
+  @media (min-width: 950px) {
+    margin: 0 40px;
+  }
+
+  // article {
+  //   @include mixin.flex(column, flex-start, stretch);
+  //   margin-bottom: 10px;
+  // }
+  
+
+ 
+}

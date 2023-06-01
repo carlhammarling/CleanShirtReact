@@ -1,0 +1,31 @@
+@use '../../styles/mixin';
+@import '../../styles/variables';
+
+footer {
+    background: $greyRad;
+    padding: 1rem 3rem;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+
+    ul {
+        @include mixin.flex(row, center, center);
+        li {
+            padding: 0rem .5rem;
+        }
+        margin-bottom: .5rem;
+    }
+
+    a {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        font-family: 'Abel', sans-serif;
+
+        &:hover {
+            text-decoration: underline;
+        }
+        &.active {
+            text-decoration: underline;
+        }
+    }
+}

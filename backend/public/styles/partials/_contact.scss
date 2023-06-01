@@ -1,0 +1,76 @@
+@mixin contact {
+    margin: 0 10px;
+    display: grid;
+    justify-content: center;
+
+    @media (min-width: 800px) {
+        @include flex(row, center, stretch);
+        gap: 20px;
+        margin: 0 20px;
+        font-size: 120%;
+    };
+
+    article {
+        margin-bottom: 10px;
+        flex-basis: 0;
+        max-width: 600px;
+        flex-grow: 1;
+        @media (min-width: 630px) {
+            margin-bottom: 20px;
+        }
+    }
+    .contactBanner {
+        @include flex(column, center, center);
+        position: relative;
+        z-index: -1;
+        max-width: 600px;    
+
+        .slogan {
+            padding: 27px;
+            position: absolute;
+            color: white;
+            span {
+                @include logo; 
+            }
+        }
+        @media (min-width: 800px) {
+            img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }     
+    }
+
+    .contactInfo > *{
+        @include flex (column, flex-start, center);
+
+        h1, h2 {
+            color: $yellow;
+            margin: 1rem 0;
+            background: $darkGrey;
+            padding: .03em .1em;
+        }
+        
+
+        p {
+            margin-bottom: 10px;
+        }
+    }
+
+    form {
+        @include form;
+
+        #category {
+            padding: 0 0.3rem;
+        }
+        label {
+            font-family: 'Abel', sans-serif; 
+        }
+
+        #send {
+            padding: .8em;
+            font-size: .8em;
+        }
+    }
+}
+
