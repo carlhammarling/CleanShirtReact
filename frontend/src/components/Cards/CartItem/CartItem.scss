@@ -22,15 +22,17 @@
         gap: .5rem;
         button {
             border: 1px solid $medGrey;
+            background-color: transparent;
             padding: .2rem;
         }
       }
     }
 
-    button {
+    .removeProduct {
         border: 0;
         background-color: transparent;
         cursor: pointer;
         color: $medGrey;
+        margin-left: auto;
     }
   }

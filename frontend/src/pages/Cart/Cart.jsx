@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Cart.scss";
 import CartItem from "../../components/Cards/CartItem/CartItem";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { cart } = useSelector((state) => state.cart);
+  const { cart, totAmount } = useSelector((state) => state.cart);
+  const [delivery, setDelivery] = useState('5')
+
+
+  useEffect(() => {
+    if(totAmount > 100) {
+      setDelivery(0)
+    } else {
+      setDelivery(5)
+    }
+  }, [totAmount])
+  
 
   console.log(cart);
 
@@ -21,20 +33,20 @@ const Cart = () => {
           <h2>Total</h2>
           <div className="priceSum">
             <p>Sub-total</p>
-            <p id="subTotal">24.00€</p>
+            <p>{totAmount}.00 €</p>
           </div>
           <div className="priceSum">
             <p>Delivery</p>
-            <p id="deliveryCost">5</p>
+            <p id="deliveryCost">{delivery}.00 €</p>
           </div>
           <div className="priceSum total">
             <p>Total amount (incl. VAT)</p>
-            <p id="totalSum">29.00€</p>
+            <p>{totAmount + delivery}.00 €</p>
           </div>
 
-          <button>
+          <Link className="bigAddBtn" to='/signin'>
             GO TO CHECK OUT <i className="fa-solid fa-cart-shopping"></i>
-          </button>
+          </Link>
         </section>
       </article>
     </main>

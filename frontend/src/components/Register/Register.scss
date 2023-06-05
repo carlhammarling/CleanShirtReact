@@ -1,0 +1,31 @@
+@use "../../styles/mixin";
+@import "../../styles/variables";
+
+.registerForm {
+    margin: 0 10px;
+
+    @media (min-width: 800px) {
+        @include mixin.flex(row, center, stretch);
+        gap: 20px;
+        margin: 0 20px;
+        font-size: 120%;
+    };
+
+
+    form {
+        @include mixin.form;
+
+        #category {
+            padding: 0 0.3rem;
+        }
+        label {
+            font-family: 'Abel', sans-serif; 
+        }
+
+        button {
+            padding: .8em;
+            font-size: .8em;
+        }
+    }
+}
+

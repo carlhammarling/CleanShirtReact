@@ -34,8 +34,10 @@
         color: $medGrey;
       }
 
-      button {
+      .bigAddBtn {
         @include mixin.bigAddBtn;
+        display: block;
+        text-align: center;
         width: 100%;
       }
     }

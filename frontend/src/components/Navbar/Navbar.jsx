@@ -2,8 +2,12 @@ import { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import cleanShirtLogo from "../../styles/images/cleanShirtLogo.png";
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
+
+  const { totQty } = useSelector(state => state.cart) 
+
   return (
     <header>
       <div className="top">
@@ -47,6 +51,10 @@ const Navbar = () => {
             <NavLink to="/cart" aria-label="Saved items">
               <i className="fa-solid fa-cart-shopping"></i>
             </NavLink>
+            { (totQty > 0) ? <span>{totQty}</span> : <></>
+            }
+            
+
           </li>
         </ul>
       </div>

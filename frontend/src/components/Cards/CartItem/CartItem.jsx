@@ -30,7 +30,7 @@ const CartItem = ({ item }) => {
 
 
       </div>
-      <button onClick={() => dispatch(removeOneProduct(item))}>
+      <button className="removeProduct" onClick={() => dispatch(removeOneProduct(item))}>
         <i className="fa-solid fa-trash-can"></i>
       </button>
     </div>

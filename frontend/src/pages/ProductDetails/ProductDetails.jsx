@@ -14,6 +14,9 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   const [oneProduct, setOneProduct] = useState(null);
+  const [rating, setRating] = useState(null);
+  const [stars, setStars] = useState([]);
+  const [hollowStars, setHollowStars] = useState([]);
   //Loads the selected product to the page
   useEffect(() => {
     axios
@@ -25,6 +28,33 @@ const ProductDetails = () => {
         console.log(err);
       });
   }, []);
+
+  //Calcultating average rating.
+  useEffect(() => {
+    if (oneProduct && oneProduct.comments) {
+      let totRating = 0;
+      oneProduct.comments.forEach((comment) => {
+        totRating += comment.rating;
+      });
+      setRating(Math.ceil(totRating / oneProduct.comments.length));
+    }
+  }, [oneProduct]);
+
+  //Counter for average review
+  useEffect(() => {
+    const filledStars = [];
+    const hollowStars = [];
+
+    for (let i = 0; i < rating; i++) {
+      filledStars.push(<i key={i} className="fa-solid fa-star totRating"></i>);
+    }
+
+    for (let i = 0; i < 5 - rating; i++) {
+      hollowStars.push(<i key={rating + i} className="fa-regular fa-star totRating"></i>);
+    }
+
+    setStars([...filledStars, ...hollowStars]);
+  }, [rating]);
 
   const [selectedSize, setSelectedSize] = useState("");
   const [showMsg, setShowMsg] = useState(false);
@@ -41,12 +71,13 @@ const ProductDetails = () => {
 
     setShowMsg(false);
     dispatch(addToCart({ ...oneProduct, size: selectedSize }));
-    setSuccess(true)
+    setSuccess(true);
     setTimeout(() => {
-      setSuccess(false)
-    }, 2000)
+      setSuccess(false);
+    }, 2000);
   };
 
+  //Prevent site to load if there is no product
   if (!oneProduct) {
     return <Loading />;
   }
@@ -63,6 +94,7 @@ const ProductDetails = () => {
           }`}</h2>
 
           <span className="price">{oneProduct.price}.99 €</span>
+          <h3>{stars} (Out of {oneProduct.comments.length} reviews)</h3>
         </section>
 
         {/* SIZE */}
