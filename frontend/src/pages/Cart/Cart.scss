@@ -1,0 +1,43 @@
+@use "../../styles/mixin";
+@import "../../styles/variables";
+
+
+.cart {
+  margin: 0 10px;
+  article {
+    line-height: 1.5;
+
+    #cartList {
+      
+    }
+    #checkout {
+      & > * {
+        margin-block: 0.5rem;
+      }
+
+      .priceSum {
+        @include mixin.flex(row, space-between, center);
+      }
+      .priceSum.total {
+        border-top: 1px solid $grey;
+        padding-top: 0.5rem;
+        p {
+          color: black;
+          font-weight: 600;
+        }
+      }
+
+      p {
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        color: $medGrey;
+      }
+
+      button {
+        @include mixin.bigAddBtn;
+        width: 100%;
+      }
+    }
+  }
+}

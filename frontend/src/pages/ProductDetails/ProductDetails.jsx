@@ -4,12 +4,17 @@ import Loading from "../../components/Loading/Loading";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import OneReview from "../../components/Cards/OneReview/OneReview";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../../store/features/cartSlice";
 
 const ProductDetails = () => {
   const { id } = useParams();
 
-  const [oneProduct, setOneProduct] = useState(null);
+  const { cart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
+  const [oneProduct, setOneProduct] = useState(null);
+  //Loads the selected product to the page
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/products/" + id)
@@ -21,10 +26,26 @@ const ProductDetails = () => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(oneProduct);
-  }, [oneProduct]);
+  const [selectedSize, setSelectedSize] = useState("");
+  const [showMsg, setShowMsg] = useState(false);
+  const [success, setSuccess] = useState(false);
 
+  //submitHandler
+  const addProductToCart = (e) => {
+    e.preventDefault();
+
+    if (selectedSize == "") {
+      setShowMsg(true);
+      return;
+    }
+
+    setShowMsg(false);
+    dispatch(addToCart({ ...oneProduct, size: selectedSize }));
+    setSuccess(true)
+    setTimeout(() => {
+      setSuccess(false)
+    }, 2000)
+  };
 
   if (!oneProduct) {
     return <Loading />;
@@ -41,19 +62,24 @@ const ProductDetails = () => {
             oneProduct.description
           }`}</h2>
 
-          
           <span className="price">{oneProduct.price}.99 €</span>
         </section>
 
         {/* SIZE */}
 
         <section id="selectToCart">
-          <form id="selectForm">
+          <form id="selectForm" onSubmit={addProductToCart}>
             <div className="input-group">
               <label className="label" htmlFor="size">
-                Category:
+                Size:
               </label>
-              <select className="input" name="size" id="size">
+              <select
+                className="input"
+                name="size"
+                id="size"
+                value={selectedSize}
+                onChange={(e) => setSelectedSize(e.target.value)}
+              >
                 <option defaultValue disabled value="">
                   Choose a size
                 </option>
@@ -65,9 +91,22 @@ const ProductDetails = () => {
                 <option value="XS">XS</option>
               </select>
             </div>
-            <button>
-              ADD TO CART <i className="fa-solid fa-cart-shopping"></i>
-            </button>
+            {showMsg ? (
+              <div className="chooseSize">
+                <p>Please choose a size before adding to cart.</p>
+              </div>
+            ) : (
+              <></>
+            )}
+            {success ? (
+              <button>
+                ADDED <i class="fa-solid fa-circle-check"></i>
+              </button>
+            ) : (
+              <button>
+                ADD TO CART <i className="fa-solid fa-cart-shopping"></i>
+              </button>
+            )}
           </form>
         </section>
 

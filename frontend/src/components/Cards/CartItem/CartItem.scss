@@ -1,0 +1,36 @@
+@use "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.cartItem {
+    @include mixin.flex(row, flex-start, flex-start);
+    gap: 15px;
+    padding-block: 1rem;
+    border-bottom: 1px solid $grey;
+
+    img {
+      width: 120px;
+      height: 150px;
+
+      object-fit: cover;
+    }
+
+    .itemRight {
+      @include mixin.flex(column, space-between, flex-start);
+
+      .quantity {
+        @include mixin.flex(row, space-between, center);
+        gap: .5rem;
+        button {
+            border: 1px solid $medGrey;
+            padding: .2rem;
+        }
+      }
+    }
+
+    button {
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        color: $medGrey;
+    }
+  }
