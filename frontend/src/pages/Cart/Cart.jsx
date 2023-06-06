@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Cart.scss";
 import CartItem from "../../components/Cards/CartItem/CartItem";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 const Cart = () => {
   const { cart, totAmount } = useSelector((state) => state.cart);
+  const { user } = useContext(UserContext)
   const [delivery, setDelivery] = useState('5')
 
 
@@ -44,7 +46,7 @@ const Cart = () => {
             <p>{totAmount + delivery}.00 €</p>
           </div>
 
-          <Link className="bigAddBtn" to='/signin'>
+          <Link className="bigAddBtn" to={ user ? '/checkout' : '/login'}>
             GO TO CHECK OUT <i className="fa-solid fa-cart-shopping"></i>
           </Link>
         </section>

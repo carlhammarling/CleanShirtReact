@@ -17,6 +17,14 @@ exports.postUser = async (req, res) => {
 
     try {
 
+        const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(409).json({
+        message: "User allready exists",
+      });
+    }
+
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt)
 
@@ -51,7 +59,7 @@ exports.loginUser = async (req, res) => {
     //Vi hi letar efter en user som har samma email som vår req + fel om 404.
     const user = await User.findOne({ email })
     if(!user) {
-        return res.status(404).json({
+        return res.status(401).json({
             message: 'Not found'
         })
     }

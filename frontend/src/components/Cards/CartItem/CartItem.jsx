@@ -19,12 +19,12 @@ const CartItem = ({ item }) => {
         <div className="quantity">
           <p id="qty">Quantity:</p>
           <button onClick={() => dispatch(decrementOneProduct(item))}>
-          <i class="fa-solid fa-minus"></i>
+          <i className="fa-solid fa-minus"></i>
           </button>
           <p id="qty">{item.quantity}</p>
 
           <button onClick={() => dispatch(incrementOneProduct(item))}>
-          <i class="fa-solid fa-plus"></i>
+          <i className="fa-solid fa-plus"></i>
           </button>
         </div>
 

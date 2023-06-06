@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./productDetails.scss";
 import Loading from "../../components/Loading/Loading";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import OneReview from "../../components/Cards/OneReview/OneReview";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,6 +12,7 @@ const ProductDetails = () => {
 
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const [oneProduct, setOneProduct] = useState(null);
   const [rating, setRating] = useState(null);
@@ -74,7 +75,8 @@ const ProductDetails = () => {
     setSuccess(true);
     setTimeout(() => {
       setSuccess(false);
-    }, 2000);
+      navigate('/products')
+    }, 1000);
   };
 
   //Prevent site to load if there is no product
@@ -132,7 +134,7 @@ const ProductDetails = () => {
             )}
             {success ? (
               <button>
-                ADDED <i class="fa-solid fa-circle-check"></i>
+                ADDED <i className="fa-solid fa-circle-check"></i>
               </button>
             ) : (
               <button>

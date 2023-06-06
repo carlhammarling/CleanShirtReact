@@ -12,6 +12,9 @@ import Cart from "./pages/Cart/Cart";
 import Likes from "./pages/Likes/Likes";
 import Register from "./components/Register/Register";
 import SignIn from "./pages/SignIn/SignIn";
+import SignInLayout from "./layouts/SigInLayout/SignInLayout";
+import Login from "./components/Login/Login";
+import Checkout from "./pages/Checkout/Checkout";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -47,8 +50,22 @@ const App = () => {
               element: <Cart />,
             },
             {
-              path: "/signin",
-              element: <SignIn />,
+              path: "/checkout",
+              element: <Checkout />
+            },
+            {
+              path: "/",
+              element: <SignInLayout />,
+              children: [
+                {
+                  path: "/login",
+                  element: <Login />
+                },
+                {
+                  path: '/register',
+                  element: <Register />
+                }
+              ]
             },
             {
               path: "/likes",

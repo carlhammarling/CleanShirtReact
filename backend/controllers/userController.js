@@ -3,7 +3,7 @@ const userModel = require('../models/userModel')
 const { verifyToken, checkAdmin } = require('../authorization/auth')
 
 //POST
-router.post('/add', userModel.postUser)
+router.post('/register', userModel.postUser)
 router.post('/login', userModel.loginUser)
 
 //GET
