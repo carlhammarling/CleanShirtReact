@@ -14,8 +14,8 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
-  const [oneProduct, setOneProduct] = useState(null);
-  const [rating, setRating] = useState(null);
+  const [oneProduct, setOneProduct] = useState();
+  const [rating, setRating] = useState();
   const [stars, setStars] = useState([]);
   const [hollowStars, setHollowStars] = useState([]);
   //Loads the selected product to the page

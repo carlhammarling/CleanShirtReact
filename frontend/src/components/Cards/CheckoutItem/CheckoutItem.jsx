@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 const CheckoutItem = ({ item }) => {
   const dispatch = useDispatch();
   return (
-    <div className="cartItem">
+    <div className="checkoutItem">
       <img src={item.product.imgURL} alt="Shirt" />
       <div className="itemRight">
         <h3>{item.product.name}</h3>

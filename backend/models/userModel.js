@@ -92,12 +92,28 @@ exports.getAllUsers = (req, res) => {
 }
 
 
-//GET - ONE
+//GET - ONE by id
 
 exports.getOneUser = (req, res) => {
     const id = req.params.id
     User.findById(id)
-        // .populate({ path: 'shoppingCart', select: 'orderLine'})
+        .populate({ path: 'shoppingCart', select: 'userId orderLine' })
+        .exec()
+        .then(data => {
+            if(!data) {
+                return res.status(404).json({ message: 'Could not find user.'})
+            }
+            res.status(200).json(data)
+            
+        })
+        .catch(() => res.status(400).json({ message: 'Something went wrong while trying to find the user.' }))
+}
+//GET - ONE by token
+
+exports.getUserByToken = (req, res) => {
+
+    const userId = req.userId
+    User.findById(userId)
         .populate({ path: 'shoppingCart', select: 'userId orderLine' })
         .exec()
         .then(data => {

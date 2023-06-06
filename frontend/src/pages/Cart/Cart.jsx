@@ -18,9 +18,7 @@ const Cart = () => {
       setDelivery(5)
     }
   }, [totAmount])
-  
 
-  console.log(cart);
 
   return (
     <main className="cart border">

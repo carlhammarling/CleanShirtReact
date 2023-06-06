@@ -7,7 +7,7 @@ import Loading from "../../components/Loading/Loading";
 
 const Products = () => {
 
-  const [products, setProducts] = useState(null)
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/products")
@@ -18,10 +18,6 @@ const Products = () => {
         console.log(err)
       })
   }, [])
-
-  useEffect(() => {
-    console.log(products)
-  }, [products])
 
   if(!products) {
     return <Loading />

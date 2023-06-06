@@ -1,7 +1,7 @@
 @use "../../../styles/mixin";
 @import "../../../styles/variables";
 
-.cartItem {
+.checkoutItem {
     @include mixin.flex(row, flex-start, flex-start);
     gap: 15px;
     padding-block: 1rem;

@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/UserContext";
 import "./Register.scss";
 
 const Register = () => {
-  const { setUser, user } = useContext(UserContext);
+  const { setToken } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -54,11 +54,14 @@ const Register = () => {
         formData
       );
       if (res.data) {
-        // //Setting user
-        setUser(res.data);
-
         //Save usertoken
         localStorage.setItem("token", res.data);
+
+        
+        // //Setting user
+        setToken(res.data);
+
+        
 
         //Resets the login-form
         setFormData({

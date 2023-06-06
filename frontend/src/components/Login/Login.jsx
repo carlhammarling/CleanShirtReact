@@ -6,7 +6,7 @@ import { UserContext } from '../../contexts/UserContext'
 
 const Login = () => {
 
-  const { setUser, user } = useContext(UserContext)
+  const { setToken } = useContext(UserContext)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
@@ -41,7 +41,7 @@ const Login = () => {
     const res = await axios.post('http://localhost:8080/api/users/login', formData)
       if(res.data) {
         // //Setting user to the data stored in the MongoDB
-        setUser(res.data)
+        setToken(res.data)
         
         //Save usertoken 
         localStorage.setItem('token', res.data)
@@ -62,9 +62,7 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(user)
-  }, [user])
+  
 
   return (
     <div className="loginForm">

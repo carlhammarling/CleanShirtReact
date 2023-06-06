@@ -8,6 +8,8 @@ router.post('/login', userModel.loginUser)
 
 //GET
 router.get('/', userModel.getAllUsers)
+//important to keep this above id
+router.get('/bytoken', verifyToken, userModel.getUserByToken)
 router.get('/:id', userModel.getOneUser)
 
 //DELETE - Delete a user - only accessable for admin.

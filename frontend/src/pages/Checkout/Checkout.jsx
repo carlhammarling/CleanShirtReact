@@ -8,7 +8,7 @@ import CheckoutItem from "../../components/Cards/CheckoutItem/CheckoutItem";
 
 const Checkout = () => {
   const { cart, totAmount, totQty } = useSelector((state) => state.cart);
-  const { user } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
   const [delivery, setDelivery] = useState("5");
 
   const [activePayment, setActivePayment] = useState(null);
@@ -31,10 +31,10 @@ const Checkout = () => {
         <section className="myOrderList">
           <div className="myOrderHeader">
             <h1>
-              My order <i class="fa-solid fa-cart-shopping fa-xs"></i>
+              My order <i className="fa-solid fa-cart-shopping fa-xs"></i>
             </h1>
             <Link to='/cart'className="editBtn">
-              edit <i class="fa-solid fa-pen fa-xs"></i>
+              edit <i className="fa-solid fa-pen fa-xs"></i>
             </Link>
           </div>
           {cart &&
@@ -50,20 +50,23 @@ const Checkout = () => {
             <h2>
               Delivery info <i className="fa-solid fa-house fa-xs"></i>
             </h2>
-            <Link className="editBtn">edit <i class="fa-solid fa-pen fa-xs"></i></Link>
+            <Link className="editBtn">edit <i className="fa-solid fa-pen fa-xs"></i></Link>
           </div>
+          { userData && 
           <div className="deliveryInfoOptions">
-            <p>Name:</p>
-            <p>Street name:</p>
-            <p>Postal code:</p>
-            <p>City:</p>
-            <p>Country:</p>
+            <p>Name: {userData.firstName} {userData.lastName}</p>
+            <p>Street name: {userData.adress}</p>
+            <p>Phone nr: {userData.phone}</p>
+            <p>Postal code: {userData.postalCode}</p>
+            <p>City: {userData.city}</p>
+            <p>Country: {userData.country}</p>
           </div>
+          }
         </section>
 
         <section className="paymentMethod">
           <h2>
-            Payment method <i class="fa-solid fa-credit-card fa-xs"></i>
+            Payment method <i className="fa-solid fa-credit-card fa-xs"></i>
           </h2>
           <div className="paymentOptions">
             <img
@@ -102,7 +105,7 @@ const Checkout = () => {
             <p>{totAmount + delivery}.00 €</p>
           </div>
 
-          <Link className="bigAddBtn" to={user ? "/checkout" : "/login"}>
+          <Link className="bigAddBtn" to={userData ? "/checkout" : "/login"}>
             PLACE ORDER <i className="fa-solid fa-cart-shopping"></i>
           </Link>
         </section>
