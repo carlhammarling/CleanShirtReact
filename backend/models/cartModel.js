@@ -7,7 +7,7 @@ const auth = require('../authorization/auth')
 //CREATE / POST
 exports.postCart = (req, res) => {
     console.log(req.userId)
-    const { orderLine } = req.body
+    const { orderLine, subTotal, delivery, totalPrice, payment } = req.body
 
     //Hämtar id från token, man postar alltså till den man är inloggad på
     const userId = req.userId
@@ -19,10 +19,11 @@ exports.postCart = (req, res) => {
     }
     
 
-    Cart.create({ orderLine, userId })
+    Cart.create({ orderLine, subTotal, delivery, totalPrice, payment, userId })
     .then(data => {
         User.findByIdAndUpdate(userId, { $push: { shoppingCart: data._id }}, { new: true })
-        .then(usercart => res.status(201).json(usercart))
+        //returning the order that was posted
+        .then(() => res.status(201).json(data))
         .catch(() => res.status(400).json({ message: 'Could not create order' }))
     })
     .catch(() => res.status(400).json({ message: 'Could not create order' }))
@@ -37,11 +38,11 @@ exports.getUserCart = (req, res) => {
     Cart.find({ userId })
     .populate({
         path: 'orderLine.product',
-        select: 'name price'
+        select: 'name'
       })
       .populate({
         path: 'userId',
-        select: 'email'
+        select: 'firstName lastName email adress postalCode city country mobile createdAt'
       })
     .exec()
     .then(data => res.status(200).json(data))

@@ -14,8 +14,20 @@ const cartSchema = mongoose.Schema({
         type: Number,
         required: true,
       },
+      size: {
+        type: String,
+        required: true,
+      },
+      price: {
+        type: Number,
+        required: true,
+      },
     },
   ],
+  subTotal: { type: Number, required: false },
+  delivery: { type: Number, required: false },
+  totalPrice: { type: Number, required: false },
+  payment: { type: String, required: true },
   userId: { type: mongoose.Types.ObjectId, ref: "User", required: true },
 });
 

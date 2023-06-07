@@ -31,7 +31,7 @@ const DeliveryInfo = () => {
             Name: {userData.firstName} {userData.lastName}
           </p>
           <p>Adress: {userData.adress}</p>
-          <p>Postal code: {userData.postalCode}</p>
+          <p>Postal Code: {userData.postalCode}</p>
           <p>City: {userData.city}</p>
           <p>Country: {userData.country}</p>
           <p>Mobile: {userData.mobile}</p>
