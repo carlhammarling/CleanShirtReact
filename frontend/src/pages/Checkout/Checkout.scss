@@ -36,7 +36,7 @@
         img {
           width: 33%;
           height: 55px;
-
+          cursor: pointer;
           object-fit: contain;
           background-color: white;
           padding: 0.5rem;
@@ -53,19 +53,7 @@
       }
     }
 
-    .deliveryInfo {
-      margin-block: 0.5rem;
-      border-bottom: 1px solid $grey;
-      padding-block: 0.5rem;
-
-      .deliveryInfoHeader {
-        @include mixin.flex(row, space-between, center);
-      }
-
-      .deliveryInfoOptions {
-        padding-block: 0.5rem;
-      }
-    }
+    
     .placeOrder {
       & > * {
         margin-block: 0.5rem;
@@ -100,9 +88,6 @@
   }
 
   .editBtn {
-    background-color: $grey;
-    padding: .2rem 1rem;
-    border-radius: 1rem;
-    color: $medGrey;
+    @include mixin.editBtn;
   }
 }

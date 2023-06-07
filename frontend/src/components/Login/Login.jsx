@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import "./Login.scss";
 import { UserContext } from '../../contexts/UserContext'
-import getUserData from "../../hooks/getUserData";
 
 const Login = () => {
 

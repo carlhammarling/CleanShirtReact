@@ -78,6 +78,7 @@
     transition: 200ms;
     padding: .8em;
     font-size: .8em;
+    line-height: 1.5;
     &:hover {
         background-color: $darkGreen;
     }
@@ -141,6 +142,17 @@
     height: 100%;
     width: 100%;
     position: absolute;
+}
+
+@mixin editBtn {
+    background-color: $grey;
+    line-height: 1.5;
+    font-size: 1rem;
+    padding: .2rem 1rem;
+    border: 0px;
+    border-radius: 1rem;
+    color: $medGrey;
+    cursor: pointer;
 }
 
 

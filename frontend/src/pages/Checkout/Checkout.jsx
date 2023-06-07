@@ -5,6 +5,8 @@ import CartItem from "../../components/Cards/CartItem/CartItem";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import CheckoutItem from "../../components/Cards/CheckoutItem/CheckoutItem";
+import ProfileForm from "../../components/forms/ProfileForm/ProfileForm";
+import DeliveryInfo from "../../components/DeliveryInfo/DeliveryInfo";
 
 const Checkout = () => {
 
@@ -50,22 +52,7 @@ const Checkout = () => {
           </div>
         </section>
 
-        <section className="deliveryInfo">
-          <div className="deliveryInfoHeader">
-            <h2>
-              Delivery info <i className="fa-solid fa-house fa-xs"></i>
-            </h2>
-            <Link to='/profile' className="editBtn">edit <i className="fa-solid fa-pen fa-xs"></i></Link>
-          </div>
-          <div className="deliveryInfoOptions">
-            <p>Name: {userData.firstName} {userData.lastName}</p>
-            <p>Adress: {userData.adress}</p>
-            <p>Postal code: {userData.postalCode}</p>
-            <p>City: {userData.city}</p>
-            <p>Country: {userData.country}</p>
-            <p>Mobile: {userData.mobile}</p>
-          </div>
-        </section>
+        <DeliveryInfo />
 
         <section className="paymentMethod">
           <h2>
