@@ -1,13 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import "./Profile.scss";
 import ProductsBanner from "../../components/Banners/ProductsBanner/ProductsBanner";
 import DeliveryInfo from "../../components/DeliveryInfo/DeliveryInfo";
 import { UserContext } from "../../contexts/UserContext";
 import CartItem from "../../components/Cards/CartItem/CartItem";
+import UserOrders from "../../components/UserOrders/UserOrders";
 
 const Profile = () => {
   const { userData } = useContext(UserContext);
+
+
+  useEffect(() => {
+    console.log(userData)
+  }, [])
 
   if (!userData) {
     //replace removes history
@@ -26,9 +32,7 @@ const Profile = () => {
           </p>
         </section>
         <DeliveryInfo />
-        <section>
-          <h2>Orders</h2>
-        </section>
+        <UserOrders shoppingCart={userData.shoppingCart} />
       </article>
     </main>
   );

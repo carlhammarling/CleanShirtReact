@@ -24,7 +24,7 @@ const DeliveryInfo = () => {
 
 
       {showEdit ? (
-        <ProfileForm />
+        <ProfileForm setShowEdit={setShowEdit} />
       ) : (
         <div className="deliveryInfoOptions">
           <p>

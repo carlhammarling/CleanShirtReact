@@ -6,9 +6,11 @@ import { UserContext } from "../../contexts/UserContext";
 import CheckoutItem from "../../components/Cards/CheckoutItem/CheckoutItem";
 import DeliveryInfo from "../../components/DeliveryInfo/DeliveryInfo";
 import axios from "axios";
+import { clearCart } from "../../store/features/cartSlice";
 
 const Checkout = () => {
 
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const { cart, totAmount, totQty } = useSelector((state) => state.cart);
   const { userData, token } = useContext(UserContext);
@@ -62,6 +64,11 @@ const Checkout = () => {
   const placeOrder = async (e) => {
     e.preventDefault()
 
+    if(order.orderLine.length == 0) {
+      console.log('You can not place and empty order')
+      return
+    }
+
     //Checking that a payment method is choosen
     if(activePayment == null) {
       console.log('You have to choose a payment method')
@@ -80,6 +87,7 @@ const Checkout = () => {
         },
       })
       if (res.data) {
+        dispatch(clearCart())
         console.log(res.data)
       }
 

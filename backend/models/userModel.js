@@ -114,7 +114,11 @@ exports.getUserByToken = (req, res) => {
 
     const userId = req.userId
     User.findById(userId)
-        .populate({ path: 'shoppingCart', select: 'userId orderLine' })
+        // .populate({ path: 'shoppingCart', select: 'userId orderLine' })
+        .populate({
+            path: 'shoppingCart',
+            populate: { path: 'orderLine' }
+        })
         .exec()
         .then(data => {
             if(!data) {
