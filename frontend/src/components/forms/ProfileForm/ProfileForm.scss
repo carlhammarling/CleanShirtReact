@@ -1,0 +1,16 @@
+@use "../../../styles/mixin";
+@import "../../../styles/variables";
+
+
+form {
+    @include mixin.form;
+
+    label {
+        font-family: 'Abel', sans-serif; 
+    }
+
+    button {
+        padding: .8em;
+        font-size: .8em;
+    }
+}

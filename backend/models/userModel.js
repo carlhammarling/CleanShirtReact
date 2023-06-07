@@ -7,7 +7,7 @@ const auth = require('../authorization/auth')
 
 //CREATE / POST
 exports.postUser = async (req, res) => {
-    const { firstName, lastName, email, password, shoppingCart } = req.body
+    const { firstName, lastName, email, password, shoppingCart, adress, postalCode, city, country, mobile } = req.body
 
     if(!firstName || !lastName || !email || !password) {
         return res.status(400).json({
@@ -28,7 +28,7 @@ exports.postUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password, salt)
 
-    const _user = new User({ firstName, lastName, email, passwordHash: hash, shoppingCart })
+    const _user = new User({ firstName, lastName, email, passwordHash: hash, shoppingCart, adress, postalCode, city, country, mobile })
 
     const user = await _user.save()
     
@@ -125,6 +125,32 @@ exports.getUserByToken = (req, res) => {
         })
         .catch(() => res.status(400).json({ message: 'Something went wrong while trying to find the user.' }))
 }
+
+//PATCH - UPDATE USER
+exports.updateUser = async (req, res) => {
+
+    const userId = req.userId
+    
+    try {
+      const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
+        new: true,
+      });
+  
+      if (!updatedUser) {
+        res.status(404).json({
+          message: "Could not find this user",
+        });
+        return;
+      }
+      res.status(200).json(updatedUser);
+      
+    } catch (err) {
+      res.status(500).json({
+        message: "Something went wrong when updating this user!",
+        err: err.message,
+      });
+    }
+  };
 
 
 //DELETE

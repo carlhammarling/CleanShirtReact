@@ -43,10 +43,15 @@ const Navbar = () => {
         </div>
         <ul className="topRight">
           <li id="heart">
+            <NavLink to="/profile" aria-label="Likes">
+            <i className="fa-solid fa-user"></i>
+            </NavLink>
+          </li>
+          {/* <li id="heart">
             <NavLink to="/likes" aria-label="Likes">
               <i className="fa-regular fa-heart"></i>
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/cart" aria-label="Saved items">
               <i className="fa-solid fa-cart-shopping"></i>

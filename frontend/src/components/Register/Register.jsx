@@ -14,6 +14,11 @@ const Register = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    adress: "",
+    postalCode: "",
+    city: "",
+    country: "",
+    mobile: "",
   });
 
   //Visible errormessage.
@@ -57,11 +62,8 @@ const Register = () => {
         //Save usertoken
         localStorage.setItem("token", res.data);
 
-        
         // //Setting user
         setToken(res.data);
-
-        
 
         //Resets the login-form
         setFormData({
@@ -70,6 +72,11 @@ const Register = () => {
           email: "",
           password: "",
           confirmPassword: "",
+          adress: "",
+          postalCode: "",
+          city: "",
+          country: "",
+          mobile: "",
         });
         navigate("/checkout");
       }

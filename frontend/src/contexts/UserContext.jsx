@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { createContext, useEffect, useState } from 'react'
+import getUserData from '../hooks/getUserData'
 export const UserContext = createContext()
 
 
@@ -9,6 +10,7 @@ const UserContextProvider = ({ children }) => {
 
       const [userData, setUserData] = useState()
 
+      
       useEffect(() => {
         if(!token) {
           return
@@ -31,6 +33,7 @@ const UserContextProvider = ({ children }) => {
           console.log(userData)
         }
       }, [userData])
+
 
 
 

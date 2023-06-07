@@ -15,6 +15,7 @@ import SignIn from "./pages/SignIn/SignIn";
 import SignInLayout from "./layouts/SigInLayout/SignInLayout";
 import Login from "./components/Login/Login";
 import Checkout from "./pages/Checkout/Checkout";
+import Profile from "./pages/Profile/Profile";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -48,6 +49,10 @@ const App = () => {
             {
               path: "/cart",
               element: <Cart />,
+            },
+            {
+              path: "/profile",
+              element: <Profile />
             },
             {
               path: "/checkout",

@@ -8,6 +8,11 @@ const userSchema = mongoose.Schema(
     email: { type: String, required: true },
     passwordHash: { type: String, required: true },
     shoppingCart: [{ type: mongoose.Schema.Types.ObjectId, ref: "Cart" }],
+    adress: { type: String, required: false },
+    postalCode: { type: String, required: false },
+    city: { type: String, required: false },
+    country: { type: String, required: false },
+    mobile: { type: String, required: false },
   },
   { timestamps: true }
 );
