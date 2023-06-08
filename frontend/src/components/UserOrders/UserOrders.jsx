@@ -35,7 +35,7 @@ const UserOrders = ({ shoppingCart }) => {
             <div className="orderedItems">
               {order.orderLine &&
                 order.orderLine.map((line) => (
-                  <OrderedItem product={line} />
+                  <OrderedItem key={line._id} product={line} />
                   // <p>{line.product}</p>
                 ))}
             </div>

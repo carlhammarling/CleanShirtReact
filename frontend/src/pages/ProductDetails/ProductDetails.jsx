@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./productDetails.scss";
+import "./ProductDetails.scss";
 import Loading from "../../components/Loading/Loading";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";

@@ -10,13 +10,7 @@ import UserOrders from "../../components/UserOrders/UserOrders";
 const Profile = () => {
   const { userData } = useContext(UserContext);
 
-
-  useEffect(() => {
-    console.log(userData)
-  }, [])
-
   if (!userData) {
-    //replace removes history
     return <Navigate to="/login" />;
   }
 

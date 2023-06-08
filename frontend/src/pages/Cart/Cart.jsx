@@ -26,9 +26,13 @@ const Cart = () => {
         <h1>Shopping cart </h1>
 
         <section id="cartList">
-          {cart &&
-            cart.map(item => <CartItem key={item.id} item={item} />)}
+          {cart && cart.length > 0 ? (
+            cart.map(item => <CartItem key={item.id} item={item} />)
+          ) : (
+            <p>It seems like your cart is empty.</p>
+          )}
         </section>
+        
         <section id="checkout">
           <h2>Total</h2>
           <div className="priceSum">

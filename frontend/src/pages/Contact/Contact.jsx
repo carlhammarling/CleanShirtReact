@@ -35,25 +35,25 @@ const Contact = () => {
           <form id="contact">
             <div id="msgForm" className="form">
               <div className="input-group">
-                <label className="label" for="msg">
+                <label className="label" htmlFor="msg">
                   Message:
                 </label>
                 <textarea className="input" id="msg" rows="30" cols="10"></textarea>
               </div>
               <div className="input-group">
-                <label className="label" for="name">
+                <label className="label" htmlFor="name">
                   Full Name:
                 </label>
                 <input className="input" type="text" id="name" />
               </div>
               <div className="input-group">
-                <label className="label" for="email">
+                <label className="label" htmlFor="email">
                   Email:
                 </label>
                 <input className="input" type="email" id="email" />
               </div>
               <div className="input-group">
-                <label className="label" for="category">
+                <label className="label" htmlFor="category">
                   Category:
                 </label>
                 <select className="input" name="category" id="category">

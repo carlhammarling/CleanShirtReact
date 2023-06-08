@@ -1,0 +1,79 @@
+@use "../../styles/mixin";
+@import "../../styles/variables";
+
+
+.reviewProduct {
+    
+    margin: 0 10px;
+        article {
+        display: grid;
+        justify-content: center;
+        margin-bottom: 10px;
+        line-height: 1.5;
+
+        @media (min-width: 630px) {
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-weight: 200;
+        }
+        img {
+            width: 100%;
+            max-width: 600px;
+            object-fit: cover;
+            @media (min-width: 800px) {
+                object-fit: cover;
+                height: 100%;
+            }
+            
+        }
+
+        h3 {
+            font-weight: 400;
+            color: $medGrey;
+        }
+
+        section {
+            max-width: 600px;
+            & > * {
+                margin-block: .5rem
+            }
+            @media (min-width: 800px) {
+                margin-top: 0;
+            }
+        }
+
+        .leaveReview {
+
+            form {
+                @include mixin.form;
+                select {
+                    padding: 0 0.3rem;
+                }
+                label {
+                    font-family: 'Abel', sans-serif; 
+                }
+
+            }
+
+            .chooseRating {
+                background-color: rgb(254, 208, 208);
+                padding: .5rem;
+                margin-bottom: 1rem;
+            }
+            
+            button {
+                @include mixin.bigAddBtn;
+                width: 100%;
+            }
+
+        }
+        @media (min-width: 800px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 0 20px;
+        }
+    }    
+}

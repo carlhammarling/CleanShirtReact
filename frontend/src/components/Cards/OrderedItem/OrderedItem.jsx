@@ -6,7 +6,7 @@ const OrderedItem = ({ product }) => {
   return (
     <div className="orderedProdCard">
       <div className="imageContainer">
-        <Link className="blocklink" to="/products"></Link>
+        <Link className="blocklink" to={`/reviewproduct/${product.product._id}`}></Link>
         <img src={product.product.imgURL} alt={product.product.name} />
         <div className="reviewBtn">
           review <i className="fa-solid fa-pen fa-xs"></i>

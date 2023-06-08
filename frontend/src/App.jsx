@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import NotFound from "./pages/NotFound/NotFound";
 import Products from "./pages/products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import ReviewProduct from "./pages/ReviewProduct/ReviewProduct";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Cart from "./pages/Cart/Cart";
@@ -37,6 +38,10 @@ const App = () => {
             {
               path: "/products/:id",
               element: <ProductDetails />,
+            },
+            {
+              path: "/reviewproduct/:id",
+              element: <ReviewProduct />,
             },
             {
               path: "/about",
