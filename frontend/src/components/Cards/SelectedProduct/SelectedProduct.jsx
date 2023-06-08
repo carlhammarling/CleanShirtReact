@@ -12,11 +12,11 @@ const SelectedProduct = ({ item }) => {
         style={{ width: "100%" }}
       />
 
-      <div className="btnShop">
-        <Link to="/products">
+      {/* <div className="btnShop"> */}
+        <Link className="btnShop" to="/products">
           SHOP NOW <i className="fa-solid fa-angles-right"></i>
         </Link>
-      </div>
+      {/* </div> */}
     </article>
   );
 };

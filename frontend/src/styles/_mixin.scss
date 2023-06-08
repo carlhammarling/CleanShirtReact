@@ -1,158 +1,155 @@
-@import '../styles/variables';
+@import "../styles/variables";
 
 @mixin flex($direction, $justify, $align) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
-   
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 @mixin footer {
-        // background: $grey;
-        background: $greyRad;
-        padding: 1rem 3rem;
-        text-align: center;
-        font-size: 0.875rem;
-        line-height: 1.5rem;
+  // background: $grey;
+  background: $greyRad;
+  padding: 1rem 3rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
 
-        ul {
-            @include flex(row, center, center);
-            li {
-                padding: 0rem .5rem;
-            }
-            margin-bottom: .5rem;
-        }
+  ul {
+    @include flex(row, center, center);
+    li {
+      padding: 0rem 0.5rem;
+    }
+    margin-bottom: 0.5rem;
+  }
 
-        a {
-            font-size: 0.875rem;
-            line-height: 1.5rem;
-            font-family: 'Abel', sans-serif;
+  a {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-family: "Abel", sans-serif;
 
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 @mixin btnShop {
-    @include flex(row, center, center);
-    margin-top: 2rem;
-    border-radius: 2rem;
-    background-color: $darkGrey;
-    width: 60%;
-    max-width: 240px;
-    height: 50px;
-    a {  
-        color: white;
-        font-size: 20;
-        font-weight: 700;
-    }
-    transition: 200ms;
-    &:hover {
-        transform: scale(.98);
-    }
+  @include flex(row, center, center);
+  margin-top: 2rem;
+  border-radius: 2rem;
+  background-color: $darkGrey;
+  width: 60%;
+  max-width: 240px;
+  height: 50px;
+  color: white;
+  font-size: 20;
+  font-weight: 700;
+
+  transition: 200ms;
+  &:hover {
+    transform: scale(0.98);
+  }
 }
 
 @mixin addBtn {
-        background-color: $green;
-        padding: .3em;
-        color:white;
-        font-weight: 500;
-        font-size: .75em;
-        border: 0;
-        cursor: pointer;
-        transition: 200ms;
-        &:hover {
-            background-color: $darkGreen;
-        }        
+  background-color: $green;
+  padding: 0.3em;
+  color: white;
+  font-weight: 500;
+  font-size: 0.75em;
+  border: 0;
+  cursor: pointer;
+  transition: 200ms;
+  &:hover {
+    background-color: $darkGreen;
+  }
 }
 
-
 @mixin bigAddBtn {
-    background-color: $green;
-    color:white;
-    font-weight: 500;
-    border: 0;
-    cursor: pointer;
-    transition: 200ms;
-    padding: .8em;
-    font-size: .8em;
-    line-height: 1.5;
-    &:hover {
-        background-color: $darkGreen;
-    }
+  background-color: $green;
+  color: white;
+  font-weight: 500;
+  border: 0;
+  cursor: pointer;
+  transition: 200ms;
+  padding: 0.8em;
+  font-size: 0.8em;
+  line-height: 1.5;
+  &:hover {
+    background-color: $darkGreen;
+  }
 }
 
 @mixin form {
-    width: 100%;
-    // max-width: 700px;
-    label {
-        display: block;
-        margin-bottom: .3rem;
-    }
-    
-    input, select, textarea { 
-        width: 100%;
-        height: 2rem;
-        padding: .5rem;
-        border-radius: 0;
-        border: 1px solid $medGrey;
-        margin-bottom: 1rem;
-        &:focus {
-            outline: none;           
-        } 
-     }
+  width: 100%;
+  // max-width: 700px;
+  label {
+    display: block;
+    margin-bottom: 0.3rem;
+  }
 
-     #msg { 
-            width: 100%;
-            resize: none;
-            height: 10rem;
-        }  
-    button {
-        @include bigAddBtn;
-        width: 100%;
+  input,
+  select,
+  textarea {
+    width: 100%;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 0;
+    border: 1px solid $medGrey;
+    margin-bottom: 1rem;
+    &:focus {
+      outline: none;
     }
+  }
+
+  #msg {
+    width: 100%;
+    resize: none;
+    height: 10rem;
+  }
+  button {
+    @include bigAddBtn;
+    width: 100%;
+  }
 }
 
 @mixin button {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    background: $darkGrey;
-    color:white;
-    border: 0;
-    transition: 200ms;
-    cursor: pointer;
-    &:hover {
-        transform: scale(.95);
-        opacity: .8;
-    }
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  background: $darkGrey;
+  color: white;
+  border: 0;
+  transition: 200ms;
+  cursor: pointer;
+  &:hover {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
 }
 
 @mixin logo {
-    color: white;
-    background: $darkGrey;
-    padding: .1rem .3rem;
-    // font-size: 1.5em;
+  color: white;
+  background: $darkGrey;
+  padding: 0.1rem 0.3rem;
+  // font-size: 1.5em;
 }
 
 @mixin blocklink {
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 @mixin editBtn {
-    background-color: $grey;
-    line-height: 1.5;
-    font-size: 1rem;
-    padding: .2rem 1rem;
-    border: 0px;
-    border-radius: 1rem;
-    color: $medGrey;
-    cursor: pointer;
+  background-color: $grey;
+  line-height: 1.5;
+  font-size: 1rem;
+  padding: 0.2rem 1rem;
+  border: 0px;
+  border-radius: 1rem;
+  color: $medGrey;
+  cursor: pointer;
 }
-
-

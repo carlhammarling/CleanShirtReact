@@ -1,0 +1,30 @@
+@use "../../styles/mixin";
+@import "../../styles/variables";
+
+.userOrders {
+  .oneOrder {
+    padding-inline: 10px;
+    margin-block: 1rem;
+    border: 1px solid $medGrey;
+    & > * {
+      margin-block: 0.5rem;
+      padding: 0.5rem;
+
+      border-bottom
+      : 1px solid $grey;
+    }
+
+    & > :last-child {
+        border-bottom: 0;
+    }
+
+    .orderInfo {
+      @include mixin.flex(row, space-between, center);
+    }
+    .orderedItems {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+}

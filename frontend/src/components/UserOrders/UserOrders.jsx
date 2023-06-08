@@ -1,15 +1,46 @@
 import React from "react";
+import OrderedItem from "../Cards/OrderedItem/OrderedItem";
+import "./UserOrders.scss";
 
 const UserOrders = ({ shoppingCart }) => {
-
+  console.log(shoppingCart);
 
   return (
-    <section>
-      <h2>Orders</h2>
+    <section className="userOrders">
+      <h2>My orders <i className="fa-solid fa-cart-shopping fa-xs"></i></h2>
 
-      {shoppingCart && shoppingCart.map(order => (
-        <p key={order._id}>Date: {order.createdAt}</p> 
-      ))}
+      {shoppingCart &&
+        shoppingCart.map((order) => (
+          <div className="oneOrder" key={order._id}>
+            <div>
+              <h3>Order number: </h3>
+              <p>{order._id}</p>
+            </div>
+
+
+            <div className="orderInfo">
+              <div>
+                <h4>Order date:</h4>
+                <p>{order.createdAt && order.createdAt.slice(0, 10)}</p>
+              </div>
+              <div>
+                <h4>Total price: </h4>
+                <p>{order.totalPrice}.00€</p>
+              </div>
+              <div>
+                <h4>Status: </h4>
+                <p>Delivered</p>
+              </div>
+            </div>
+            <div className="orderedItems">
+              {order.orderLine &&
+                order.orderLine.map((line) => (
+                  <OrderedItem product={line} />
+                  // <p>{line.product}</p>
+                ))}
+            </div>
+          </div>
+        ))}
     </section>
   );
 };

@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
         <ul className="topRight">
           <li id="heart">
-            <NavLink to="/profile" aria-label="Likes">
+            <NavLink to="/profile" aria-label="Profile">
             <i className="fa-solid fa-user"></i>
             </NavLink>
           </li>

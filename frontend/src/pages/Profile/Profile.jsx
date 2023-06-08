@@ -24,12 +24,12 @@ const Profile = () => {
     <main className="profile">
       <ProductsBanner />
       <article className="myAccount">
-        <section>
-          <h1>My account</h1>
-          <p>
-            Hi {userData.firstName} {userData.lastName}! Here you can find your
-            orders and update you delivery info.
-          </p>
+        <section className="accountInfo">
+          <h1>My account </h1>
+          <h4>
+            Hi {userData.firstName} {userData.lastName}! Here you can update you delivery info, find your
+            orders and leave reviews on products.
+          </h4>
         </section>
         <DeliveryInfo />
         <UserOrders shoppingCart={userData.shoppingCart} />
