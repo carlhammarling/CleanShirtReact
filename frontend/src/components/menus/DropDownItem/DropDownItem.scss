@@ -1,0 +1,11 @@
+@use "../../../styles/mixin";
+@import "../../../styles/variables";
+
+
+li.menuLink {
+  padding: 1rem;
+
+  a {
+    font-size: 1.5rem;
+  }
+}

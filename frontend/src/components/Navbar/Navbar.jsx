@@ -28,7 +28,6 @@ const Navbar = () => {
             <NavLink to="/">
               <img src={cleanShirtLogo} alt="Clean Shirt Logo" width="130" />
             </NavLink>
-            {/* <img src={cleanShirtLogo} alt="Clean Shirt Logo" width="130" /> */}
           </div>
         </div>
         <ul className="topRight">
@@ -56,9 +55,7 @@ const Navbar = () => {
         </div>
         <input type="search" placeholder="Search" />
       </div>
-      <nav className>
         <DropDown setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
-      </nav>
     </header>
   );
 };
