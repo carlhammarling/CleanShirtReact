@@ -3,18 +3,10 @@
 
 .HomeProductSelection {
   @include mixin.flex(row, center, flex-start);
-  gap: 15px;
-  margin-bottom: 10px;
+  gap: 10px;
+  // margin-bottom: 10px;
 
   @media (max-width: 550px) {
     @include mixin.flex(column, center, center);
       }
 }
-
-// #shopBanner3 {
-  //   display: none;
-  
-  //   @media (min-width: 550px) {
-  //     display: flex;
-  //   }
-  // }

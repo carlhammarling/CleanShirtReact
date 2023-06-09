@@ -2,7 +2,6 @@
 @import "../../styles/variables";
 
 .loginForm {
-    margin: 0 10px;
 
     @media (min-width: 800px) {
         @include mixin.flex(row, center, stretch);

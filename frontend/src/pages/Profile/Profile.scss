@@ -2,22 +2,18 @@
 @import "../../styles/variables";
 
 .profile {
-  margin: 0 10px;
   article.myAccount {
     line-height: 1.5;
+    display: grid;
+    gap: 0.5rem;
 
     section {
-        border-bottom: 1px solid $grey;
-        padding-block: 0.5rem;
-      }
+      border-bottom: 1px solid $grey;
+    }
 
-      .accountInfo {
-        
-        padding: 5rem;
-        text-align: center;
-      }
+    .accountInfo {
+      padding: 5rem;
+      text-align: center;
+    }
   }
-
-  
-
 }

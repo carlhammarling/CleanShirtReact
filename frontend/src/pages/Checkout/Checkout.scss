@@ -2,7 +2,6 @@
 @import "../../styles/variables";
 
 .checkout {
-  margin: 0 10px;
   article {
     line-height: 1.5;
 
@@ -83,6 +82,7 @@
         display: block;
         text-align: center;
         width: 100%;
+        margin-block: 0;
       }
     }
   }

@@ -5,7 +5,6 @@
   background-color: $yellow;
   padding: 3%;
   @include mixin.flex(column, flex-start, stretch);
-  margin-bottom: 10px;
 
   #hangOut {
     display: none;

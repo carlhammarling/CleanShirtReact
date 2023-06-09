@@ -2,8 +2,8 @@
 @import "../../styles/variables";
 
 .home {
-  margin: 0 10px;
   @include mixin.flex(column, flex-start, stretch);
+  gap: 10px;
 
   @media (min-width: 650px) {
     margin: 0 20px;

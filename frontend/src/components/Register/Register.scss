@@ -2,7 +2,6 @@
 @import "../../styles/variables";
 
 .registerForm {
-    margin: 0 10px;
 
     @media (min-width: 800px) {
         @include mixin.flex(row, center, stretch);

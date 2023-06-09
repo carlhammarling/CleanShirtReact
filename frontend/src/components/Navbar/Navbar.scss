@@ -1,117 +1,96 @@
-@use '../../styles/mixin';
-@import '../../styles/variables';
+@use "../../styles/mixin";
+@import "../../styles/variables";
 
 header {
-    @include mixin.flex(column, flex-start, stretch);
-    z-index: 2;
+  @include mixin.flex(column, flex-start, stretch);
+  z-index: 999;
 
-    .top {
-        @include mixin.flex(row, space-between, stretch);
-        background-color: $darkGrey;
-        color: white;
-        height: 50px;
-        font-size: 1.3em;
-        font-weight: 500;
-        .topLeft {
-            @include mixin.flex(row, flex-start, stretch);
+  .top {
+    @include mixin.flex(row, space-between, stretch);
+    background-color: $darkGrey;
+    color: white;
+    height: 50px;
+    font-size: 1.3em;
+    font-weight: 500;
+    .topLeft {
+      @include mixin.flex(row, flex-start, stretch);
 
-            nav {
-                position: relative;
+      .dropDownTrigger {
+        display: grid;
+        place-items: center;
+        width: 50px;
 
-                button {
-                    @include mixin.button;
-
-                }
-                .dropDownMenu {
-                    position: absolute;
-                    color: $darkGrey;
-                    background: white;
-                    padding: 1rem;
-                    line-height: 1.5;
-                    box-shadow: $shadow;
-                    opacity: 0;
-                    transform: translateX(-100px);
-                    transition: opacity 10ms ease-in-out, transform 200ms ease-in-out;
-                    pointer-events: none;
-                }
-            }
-
-            nav.active > button {
-                transform: scale(.95);
-                opacity: .8;
-                &+ .dropDownMenu {
-                    opacity: 1;
-                    transform: translateX(0px);
-                    pointer-events: auto;
-                }
-            }
-            
+        .dropDownTrigger .dropDownBtn {
+          // position: absolute;
+          color: white;
+          transition: 200ms;
+          cursor: pointer;
+          &:hover {
+            transform: scale(0.95);
+            opacity: 0.8;
+          }
         }
-        .topRight {
-            @include mixin.flex(row, flex-end, stretch);
-            li {
-                @include mixin.flex(row, center, center);
-                padding-right: 15px;
-                position: relative;
-            }
-            a {
-                color: white;
-                transition: 200ms;
-                &:hover {
-                    transform: scale(.95);
-                    opacity: .8;
-                }
-            }
-
-            #heart {
-                @media (max-width: 358px) {
-                    display: none;
-                }
-            }
-            span {
-                @include mixin.flex(row, center, center);
-                background-color: white;
-                position: absolute;
-                color: $darkGrey;
-                width: 16px;
-                height: 16px;
-                text-align: center;
-                border-radius: 1rem;
-                font-size: 10px;
-                left: 15px;
-                top: 8px;
-            }
-            .d-none { 
-                display: none;
-            }
-        }
-        
+      }
     }
-    .search {
-        @include mixin.flex(row, flex-start, stretch);
-        background: white;
-    }
-    .logo {
+    .topRight {
+      @include mixin.flex(row, flex-end, stretch);
+      li {
         @include mixin.flex(row, center, center);
-        min-width: 50px;
-
-        a {
-            @include mixin.flex(row, center, center);
+        padding-right: 15px;
+        position: relative;
+      }
+      a {
+        color: white;
+        transition: 200ms;
+        &:hover {
+          transform: scale(0.95);
+          opacity: 0.8;
         }
-    }
-    input {
-        height: 50px;
-        flex-grow: 1;
-        padding-right: 20px;
-        border:0;
-        background-color: white;
-        &:focus {
-            outline: none;           
-        } 
-    }
-    position: sticky;
-    top: 0px;
-    // box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
-    
-}
+      }
 
+      #heart {
+        @media (max-width: 358px) {
+          display: none;
+        }
+      }
+      span {
+        @include mixin.flex(row, center, center);
+        background-color: white;
+        position: absolute;
+        color: $darkGrey;
+        width: 16px;
+        height: 16px;
+        text-align: center;
+        border-radius: 1rem;
+        font-size: 10px;
+        left: 15px;
+        top: 8px;
+      }
+      .d-none {
+        display: none;
+      }
+    }
+  }
+  .search {
+    @include mixin.flex(row, flex-start, stretch);
+    background: white;
+  }
+  .logo {
+    @include mixin.flex(row, center, center);
+    min-width: 50px;
+
+    a {
+      @include mixin.flex(row, center, center);
+    }
+  }
+  input {
+    height: 50px;
+    flex-grow: 1;
+    padding-right: 20px;
+    border: 0;
+    background-color: white;
+    &:focus {
+      outline: none;
+    }
+  }
+}

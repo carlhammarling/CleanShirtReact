@@ -2,9 +2,16 @@
 
 .wrapper {
     @include mixin.flex(column, flex-start, stretch);
-    height: 100dvh;
+   min-height: 100dvh;
+    header {
+        position: sticky;
+        z-index: 999;
+        top: 0px;
+    }
 
     .siteFlex {
         flex: 1;
+        margin: 10px;
+        // background-color: aquamarine;
     }
 }

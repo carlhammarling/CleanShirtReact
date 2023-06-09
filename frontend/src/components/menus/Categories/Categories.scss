@@ -2,7 +2,6 @@
 
 .categories {
   @include mixin.flex(column, flex-start, stretch);
-    margin-bottom: 10px;
     line-height: 2rem;
     h2 {
       text-align: center;

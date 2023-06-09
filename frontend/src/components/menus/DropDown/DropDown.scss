@@ -1,0 +1,44 @@
+@use "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.menuWrapper {
+  position: absolute;
+  top: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.244);
+  backdrop-filter: blur(2px);
+  .dropDownMenu {
+    position: fixed;
+    padding: 2rem;
+    height: 100dvh;
+    margin: auto;
+    background-color: white;
+    width: 85vw;
+    border-right: 1px solid $grey;
+    left: 0px;
+  }
+}
+
+.menuWrapper.active {
+  opacity: 1;
+  visibility: visible;
+
+  transition: 0.3s ease-in-out;
+}
+.menuWrapper.inactive {
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s ease-in-out;
+}
+.dropDownMenu.active {
+  transform: translate(0);
+  transition: 0.3s ease-in-out;
+}
+.dropDownMenu.inactive {
+  transform: translate(-80dvh);
+  transition: 0.3s ease-in-out;
+}

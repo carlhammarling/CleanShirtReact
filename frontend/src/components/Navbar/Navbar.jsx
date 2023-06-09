@@ -1,50 +1,40 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import cleanShirtLogo from "../../styles/images/cleanShirtLogo.png";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
+import DropDown from "../menus/DropDown/DropDown";
+import DropDownItem from "../menus/DropDownItem/DropDownItem";
 
 const Navbar = () => {
+  const { totQty } = useSelector((state) => state.cart);
 
-  const { totQty } = useSelector(state => state.cart) 
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
     <header>
       <div className="top">
         <div className="topLeft">
-          <nav data-dropdown>
-            <button aria-label="Menu" className="link" data-dropdown-button>
-              <i className="fa-solid fa-bars fa-sm" data-dropdown-button></i>
-            </button>
-            <div className="dropDownMenu">
-              <ul>
-                <li>
-                  <a href="./index.html">Home</a>
-                </li>
-                <li>
-                  <a href="./products.html">Products</a>
-                </li>
-                <li>
-                  <a href="./references.html">Reviews</a>
-                </li>
-                <li>
-                  <a href="./about.html">About</a>
-                </li>
-                <li>
-                  <a href="./contact.html">Contact</a>
-                </li>
-              </ul>
+            <div
+              className="dropDownTrigger"
+              onClick={() => {
+                setToggleMenu((state) => !state);
+              }}
+            >
+              <i className="dropDownBtn fa-solid fa-bars fa-lg"></i>
             </div>
-          </nav>
+
           <div className="logo">
-            <NavLink to='/'><img src={cleanShirtLogo} alt="Clean Shirt Logo" width="130" /></NavLink>
+            <NavLink to="/">
+              <img src={cleanShirtLogo} alt="Clean Shirt Logo" width="130" />
+            </NavLink>
             {/* <img src={cleanShirtLogo} alt="Clean Shirt Logo" width="130" /> */}
           </div>
         </div>
         <ul className="topRight">
           <li id="heart">
             <NavLink to="/profile" aria-label="Profile">
-            <i className="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
             </NavLink>
           </li>
           {/* <li id="heart">
@@ -56,10 +46,7 @@ const Navbar = () => {
             <NavLink to="/cart" aria-label="Saved items">
               <i className="fa-solid fa-cart-shopping"></i>
             </NavLink>
-            { (totQty > 0) ? <span>{totQty}</span> : <></>
-            }
-            
-
+            {totQty > 0 ? <span>{totQty}</span> : <></>}
           </li>
         </ul>
       </div>
@@ -69,6 +56,9 @@ const Navbar = () => {
         </div>
         <input type="search" placeholder="Search" />
       </div>
+      <nav className>
+        <DropDown setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
+      </nav>
     </header>
   );
 };
