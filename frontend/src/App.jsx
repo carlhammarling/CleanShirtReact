@@ -7,7 +7,6 @@ import NotFound from "./pages/NotFound/NotFound";
 import Products from "./pages/products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import ReviewProduct from "./pages/ReviewProduct/ReviewProduct";
-import Contact from "./pages/Contact/Contact";
 import Cart from "./pages/Cart/Cart";
 import SignIn from "./pages/SignIn/SignIn";
 import Checkout from "./pages/Checkout/Checkout";
@@ -40,10 +39,6 @@ const App = () => {
               element: <ReviewProduct />,
             },
             {
-              path: "/contact",
-              element: <Contact />,
-            },
-            {
               path: "/cart",
               element: <Cart />,
             },
@@ -67,8 +62,12 @@ const App = () => {
               path: "*",
               element: <NotFound />,
             },
-          ],
+          ]    
         },
+        // {
+        //   path: '/contact',
+        //   element: <Contact />
+        // }
       ],
     },
   ]);
