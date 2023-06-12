@@ -12,12 +12,11 @@ const ProductDetails = () => {
 
   const { cart } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [oneProduct, setOneProduct] = useState();
   const [rating, setRating] = useState();
   const [stars, setStars] = useState([]);
-  const [hollowStars, setHollowStars] = useState([]);
   //Loads the selected product to the page
   useEffect(() => {
     axios
@@ -51,7 +50,9 @@ const ProductDetails = () => {
     }
 
     for (let i = 0; i < 5 - rating; i++) {
-      hollowStars.push(<i key={rating + i} className="fa-regular fa-star totRating"></i>);
+      hollowStars.push(
+        <i key={rating + i} className="fa-regular fa-star totRating"></i>
+      );
     }
 
     setStars([...filledStars, ...hollowStars]);
@@ -75,7 +76,7 @@ const ProductDetails = () => {
     setSuccess(true);
     setTimeout(() => {
       setSuccess(false);
-      navigate('/products')
+      navigate("/products");
     }, 1000);
   };
 
@@ -96,7 +97,9 @@ const ProductDetails = () => {
           }`}</h2>
 
           <span className="price">{oneProduct.price}.99 €</span>
-          <h3>{stars} (Out of {oneProduct.comments.length} reviews)</h3>
+          <h3>
+            {stars} (Out of {oneProduct.comments.length} reviews)
+          </h3>
         </section>
 
         {/* SIZE */}
@@ -143,14 +146,16 @@ const ProductDetails = () => {
             )}
           </form>
         </section>
-
-        <section id="reviewList">
-          <h1>Reviews </h1>
-          {oneProduct &&
-            oneProduct.comments.map((comment) => (
-              <OneReview key={comment._id} comment={comment} />
-            ))}
-        </section>
+        {/* Only shows reviews-div if there are any. */}
+        {oneProduct.comments.length > 1 && (
+          <section id="reviewList">
+            <h1>Reviews </h1>
+            {oneProduct &&
+              oneProduct.comments.map((comment) => (
+                <OneReview key={comment._id} comment={comment} />
+              ))}
+          </section>
+        )}
       </article>
     </main>
   );

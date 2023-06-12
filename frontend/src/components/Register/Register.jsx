@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/UserContext";
 import "./Register.scss";
 
 const Register = () => {
-  const { setToken } = useContext(UserContext);
+  const { setToken, userData } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -59,11 +59,14 @@ const Register = () => {
         formData
       );
       if (res.data) {
-        //Save usertoken
-        localStorage.setItem("token", res.data);
 
         // //Setting user
         setToken(res.data);
+
+
+        //Save usertoken
+        localStorage.setItem("token", res.data);
+        
 
         //Resets the login-form
         setFormData({
@@ -78,7 +81,7 @@ const Register = () => {
           country: "",
           mobile: "",
         });
-        navigate("/checkout");
+        
       }
     } catch (err) {
       if (err.response.status == 409) {
@@ -88,10 +91,19 @@ const Register = () => {
     }
   };
 
+    //Waiting for userData to be updated before navigating
+
+  useEffect(() => {
+    if(!userData) {
+      return
+    }
+    navigate(-1)
+  }, [userData])
+
   return (
     <div className="registerForm">
       <form onSubmit={handleSubmit}>
-        <p>Please Register Your New Account</p>
+        <p>Please register a new account.</p>
         <br />
 
         <label htmlFor="firstName">First Name*</label>

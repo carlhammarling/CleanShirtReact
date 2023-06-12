@@ -1,19 +1,28 @@
 @use "../../styles/mixin";
 @import "../../styles/variables";
 
-.selectSignIn {
-  display: flex;
-  .toggleSignInBtn {
-    flex: 1;
+.signInWrapper {
+  .signInBtns {
+    display: flex;
+    
 
-    background-color: transparent;
-    padding: 1rem;
-    border: 0;
-    font-family: "Inter", sans-serif;
-    font-size: 1.5em;
-    color: $darkGrey;
-    font-weight: 600;
-    cursor: pointer;
+    .userNav {
+      background-color: transparent;
+      flex: 1;
+      text-align: center;
+      padding: 0.7rem;
+      margin-bottom: 0.5rem;
+      border: 0;
+      font-family: "Inter", sans-serif;
+      font-size: 1.5em;
+      color: $darkGrey;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
 
+      &.active {
+        border-bottom: 2px solid $grey;
+      }
+    }
   }
 }

@@ -1,12 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import axios from 'axios'
 import "./Login.scss";
 import { UserContext } from '../../contexts/UserContext'
 
 const Login = () => {
 
-  const { setToken } = useContext(UserContext)
+  const { setToken, userData } = useContext(UserContext)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
@@ -52,7 +52,6 @@ const Login = () => {
           email: '',
           password: ''
         })
-        navigate('/checkout')
 
       }
     } catch (err) {
@@ -63,12 +62,20 @@ const Login = () => {
     }
   };
 
+  //Waiting for userData to be updated before navigating
+   useEffect(() => {
+    if(!userData) {
+      return
+    }
+    navigate(-1)
+  }, [userData])
+
   
 
   return (
     <div className="loginForm">
       <form onSubmit={handleSubmit}>
-        <p>Allready have a user? Sign in!</p>
+        <p>Allready have an account? Sign in!</p>
         <br />
 
         <label htmlFor="email">Email:</label>

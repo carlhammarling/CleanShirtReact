@@ -1,0 +1,25 @@
+@use "../../styles/mixin";
+@import "../../styles/variables";
+
+.emptyCart {
+    display: grid;
+    place-items: center;
+    line-height: 1.5;
+    gap: 1rem;
+    
+
+    .accountInfo {
+        padding: 5rem;
+        text-align: center;
+        display: grid;
+        gap: .5rem;
+      }
+
+    .bigAddBtn {
+        @include mixin.bigAddBtn;
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin-block: 0;
+      }
+}

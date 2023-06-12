@@ -10,35 +10,63 @@ const UserContextProvider = ({ children }) => {
       const [userData, setUserData] = useState()
 
       
-      useEffect(() => {
-        if(!token) {
-          return
-        }
-        axios.get('http://localhost:8080/api/users/bytoken', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((res) => {
-          setUserData(res.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      }, [token])
+  const getUserData = () => {
+    if (!token) {
+      return;
+    }
 
-      useEffect(() => {
-        if(userData) {
-          console.log(userData)
-        }
-      }, [userData])
+    axios
+      .get('http://localhost:8080/api/users/bytoken', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setUserData(res.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    getUserData();
+  }, [token]);
+
+
+
+
+
+
+
+
+      // useEffect(() => {
+      //   if(!token) {
+      //     return
+      //   }
+      //   axios.get('http://localhost:8080/api/users/bytoken', {
+      //     headers: {
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   })
+      //   .then((res) => {
+      //     setUserData(res.data);
+      //   })
+      //   .catch((error) => {
+      //     console.error(error);
+      //   });
+      // }, [token])
+
+      
+
+    
 
 
 
 
 
   return (
-    <UserContext.Provider value={{ token, setToken, userData, setUserData }} >
+    <UserContext.Provider value={{ token, setToken, userData, setUserData, getUserData }} >
         {/* all children can access this data */}
         { children }
     </UserContext.Provider>

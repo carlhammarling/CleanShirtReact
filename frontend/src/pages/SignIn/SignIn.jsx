@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import './SignIn.scss'
 import { NavLink } from "react-router-dom";
+import Login from "../../components/Login/Login";
+import Register from "../../components/Register/Register";
 
 const SignIn = () => {
+
+  const [toggleSignIn, setToggleSignIn] = useState(true)
   return (
-    <div>
-      <div className="selectSignIn">
-        <NavLink className="toggleSignInBtn" to='/login' >
+    <div className="signInWrapper">
+      <div className="signInBtns">
+        <button className={`userNav ${toggleSignIn ? "active" : ""}`} onClick={() => setToggleSignIn(true)}>
           Login
-        </NavLink>
-        <NavLink className="toggleSignInBtn" to='/register'>
+        </button>
+        <button className={`userNav ${toggleSignIn ? "" : "active"}`} onClick={() => setToggleSignIn(false)}>
           Register
-        </NavLink>
+        </button>
       </div>
-      
+      {toggleSignIn ? 
+      <Login />
+      : 
+      <Register />
+      }
     </div>
   );
 };

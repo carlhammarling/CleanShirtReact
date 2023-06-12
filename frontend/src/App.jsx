@@ -7,16 +7,12 @@ import NotFound from "./pages/NotFound/NotFound";
 import Products from "./pages/products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import ReviewProduct from "./pages/ReviewProduct/ReviewProduct";
-import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Cart from "./pages/Cart/Cart";
-import Likes from "./pages/Likes/Likes";
-import Register from "./components/Register/Register";
 import SignIn from "./pages/SignIn/SignIn";
-import SignInLayout from "./layouts/SigInLayout/SignInLayout";
-import Login from "./components/Login/Login";
 import Checkout from "./pages/Checkout/Checkout";
 import Profile from "./pages/Profile/Profile";
+import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -44,10 +40,6 @@ const App = () => {
               element: <ReviewProduct />,
             },
             {
-              path: "/about",
-              element: <About />,
-            },
-            {
               path: "/contact",
               element: <Contact />,
             },
@@ -64,22 +56,12 @@ const App = () => {
               element: <Checkout />
             },
             {
-              path: "/",
-              element: <SignInLayout />,
-              children: [
-                {
-                  path: "/login",
-                  element: <Login />
-                },
-                {
-                  path: '/register',
-                  element: <Register />
-                }
-              ]
+              path: "/signin",
+              element: <SignIn />
             },
             {
-              path: "/likes",
-              element: <Likes />,
+              path: "/ordersuccess",
+              element: <OrderSuccess />
             },
             {
               path: "*",

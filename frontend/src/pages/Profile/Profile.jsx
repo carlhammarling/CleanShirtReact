@@ -11,7 +11,7 @@ const Profile = () => {
   const { userData } = useContext(UserContext);
 
   if (!userData) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/signin" />;
   }
 
   return (

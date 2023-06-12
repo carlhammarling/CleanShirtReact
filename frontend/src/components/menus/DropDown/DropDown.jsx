@@ -19,7 +19,7 @@ const DropDown = ({ setToggleMenu, toggleMenu }) => {
       ref={menuWrapper}
       onClick={closeMenu}
     >
-      <div class={`dropDownMenu ${toggleMenu ? "active" : "inactive"}`}>
+      <div className={`dropDownMenu ${toggleMenu ? "active" : "inactive"}`}>
         <button
           onClick={() => {
             setToggleMenu((state) => !state);
@@ -51,8 +51,8 @@ const DropDown = ({ setToggleMenu, toggleMenu }) => {
                 setToggleMenu={setToggleMenu}
               />
               <DropDownItem
-                link={"/about"}
-                text={"About"}
+                link={"/contact"}
+                text={"Contact"}
                 setToggleMenu={setToggleMenu}
               />
             </ul>
