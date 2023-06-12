@@ -11,6 +11,7 @@ const Products = () => {
   const [noResults, setNoResults] = useState(false);
   const filteredResults = useSelector((state) => state.search);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedSort, setSelectedSort] = useState(""); // Track selected sort option
 
   useEffect(() => {
     axios
@@ -34,12 +35,52 @@ const Products = () => {
     }
   }, [filteredResults]);
 
+  //sorting
+  const handleSortChange = (event) => {
+    const sortOption = event.target.value;
+    setSelectedSort(sortOption);
+
+    let sortedProducts = [...products];
+    if (sortOption === "ascending") {
+      sortedProducts = sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (sortOption === "descending") {
+      sortedProducts = sortedProducts.sort((a, b) => b.price - a.price);
+    } else if (sortOption === "createdAtAscending") {
+      sortedProducts = sortedProducts.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+        return dateA.getTime() - dateB.getTime();
+      });
+    } else if (sortOption === "createdAtDescending") {
+      sortedProducts = sortedProducts.sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+        return dateB.getTime() - dateA.getTime();
+      });
+    }
+
+    setProducts(sortedProducts);
+  };
+
   if (!products) {
     return <Loading />;
   }
   return (
     <main className="products">
       <ProductsBanner />
+      <div className="sortDropdown">
+        <select
+          id="sortSelect"
+          value={selectedSort}
+          onChange={handleSortChange}
+        >
+          <option value="">Sort products</option>
+          <option value="ascending">Price (Low to High)</option>
+          <option value="descending">Price (High to Low)</option>
+          <option value="createdAtAscending">Date (Old to New)</option>
+          <option value="createdAtDescending">Date (New to Old)</option>
+        </select>
+      </div>
       {noResults && filteredResults ? (
         <div className="errorMsg">
           <p>

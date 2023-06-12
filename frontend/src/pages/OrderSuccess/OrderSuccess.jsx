@@ -18,7 +18,7 @@ const OrderSuccess = () => {
           have bought.
         </h4>
       </section>
-      <Link className="bigAddBtn" to="/products">
+      <Link className="bigAddBtn" to="/profile">
         TAKE ME TO THE USER PAGE
       </Link>
     </div>

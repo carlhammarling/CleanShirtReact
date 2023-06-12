@@ -28,6 +28,13 @@
     }
   }
 
+  .sortDropdown {
+    @include mixin.form;
+     select {
+      padding: 0 0.3rem;
+     }
+  }
+
   .prodWrap {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
