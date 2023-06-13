@@ -22,12 +22,12 @@ const Categories = () => {
           </li>
           <li>
             <Link to="/products">
-              Overshirts<i className="fa-solid fa-angles-right fa-xs"></i>
+              Women<i className="fa-solid fa-angles-right fa-xs"></i>
             </Link>
           </li>
           <li>
             <Link to="/products">
-              Jackets<i className="fa-solid fa-angles-right fa-xs"></i>
+              Men<i className="fa-solid fa-angles-right fa-xs"></i>
             </Link>
           </li>
           <li>

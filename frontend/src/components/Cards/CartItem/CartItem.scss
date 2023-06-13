@@ -2,37 +2,51 @@
 @import "../../../styles/variables";
 
 .cartItem {
-    @include mixin.flex(row, flex-start, flex-start);
-    gap: 15px;
-    padding-block: 1rem;
-    border-bottom: 1px solid $grey;
+  @include mixin.flex(row, flex-start, flex-start);
+  gap: 15px;
+  padding-block: 1rem;
+  border-bottom: 1px solid $grey;
 
-    img {
-      width: 120px;
-      height: 150px;
-
-      object-fit: cover;
+  img {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    transition: 0.2s ease-in-out;
+    
+    &:hover {
+      opacity: 0.85;
     }
+  }
 
-    .itemRight {
-      @include mixin.flex(column, space-between, flex-start);
+  .itemRight {
+    @include mixin.flex(column, space-between, flex-start);
 
-      .quantity {
+    .quantity {
+      @include mixin.flex(row, space-between, center);
+      gap: 0.5rem;
+
+      .qtySelect {
         @include mixin.flex(row, space-between, center);
-        gap: .5rem;
+
+        p.qty {
+          border-block: 1px solid $medGrey;
+          padding: 0.2rem 0.5rem;
+          line-height: 1;
+        }
         button {
-            border: 1px solid $medGrey;
-            background-color: transparent;
-            padding: .2rem;
+          border: 1px solid $medGrey;
+          background-color: transparent;
+          padding: 0.2rem 0.4rem;
         }
       }
     }
-
-    .removeProduct {
-        border: 0;
-        background-color: transparent;
-        cursor: pointer;
-        color: $medGrey;
-        margin-left: auto;
-    }
   }
+
+  .removeProduct {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: $medGrey;
+    margin-left: auto;
+  }
+}

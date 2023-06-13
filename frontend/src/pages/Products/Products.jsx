@@ -5,42 +5,55 @@ import ProductsBanner from "../../components/Banners/ProductsBanner/ProductsBann
 import GalleryProductCard from "../../components/Cards/GalleryProductCard/GalleryProductCard";
 import axios from "axios";
 import Loading from "../../components/Loading/Loading";
-
+import SelectedProduct2 from "../../components/Cards/SelectedProduct2/SelectedProduct2";
 const Products = () => {
+
+
   const [products, setProducts] = useState([]);
-  const [noResults, setNoResults] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const filteredResults = useSelector((state) => state.search);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedSort, setSelectedSort] = useState(""); // Track selected sort option
+  const [selectedSort, setSelectedSort] = useState("");
+  const [gender, setGender] = useState(false);
 
+
+  //Fetching all the products and storing them localy
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/products")
-      .then((res) => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get("http://localhost:8080/api/products");
         setProducts(res.data);
         setIsLoading(false);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.log(err);
         setIsLoading(false);
-      });
-  }, [noResults]);
+      }
+    }
+    fetchData()
+  }, []);
 
+
+
+
+  //If there are no results of the filtering, Show error message and otherproducts instead
   useEffect(() => {
     if (filteredResults.length > 0) {
-      setProducts(filteredResults);
-      setNoResults(false);
+      setFilteredProducts(filteredResults);
     } else {
-      setNoResults(true);
+      const randomProducts = [...products];
+      randomProducts.sort(() => Math.random() - 0.5);
+      setFilteredProducts(randomProducts);
     }
   }, [filteredResults]);
 
-  //sorting
+
+
+//Sorting products nasem on date or price.
   const handleSortChange = (event) => {
     const sortOption = event.target.value;
     setSelectedSort(sortOption);
 
-    let sortedProducts = [...products];
+    let sortedProducts = [...filteredProducts];
     if (sortOption === "ascending") {
       sortedProducts = sortedProducts.sort((a, b) => a.price - b.price);
     } else if (sortOption === "descending") {
@@ -59,37 +72,56 @@ const Products = () => {
       });
     }
 
-    setProducts(sortedProducts);
+    setFilteredProducts(sortedProducts);
   };
 
-  if (!products) {
+
+  //Displaying products basen on weather you have pushed Women or Men
+  useEffect(() => {
+    if (!gender) {
+      const womenProducts = products.filter((product) =>
+        product.category.includes("Women")
+      );
+      setFilteredProducts(womenProducts);
+    } else {
+      const menProducts = products.filter((product) =>
+        product.category.includes("Men")
+      );
+      setFilteredProducts(menProducts);
+    }
+  }, [gender, products]);
+
+  if (!filteredProducts) {
     return <Loading />;
   }
   return (
     <main className="products">
       <ProductsBanner />
-      <div className="sortDropdown">
-        <select
-          id="sortSelect"
-          value={selectedSort}
-          onChange={handleSortChange}
-        >
-          <option value="">Sort products</option>
-          <option value="ascending">Price (Low to High)</option>
-          <option value="descending">Price (High to Low)</option>
-          <option value="createdAtAscending">Date (Old to New)</option>
-          <option value="createdAtDescending">Date (New to Old)</option>
-        </select>
-      </div>
-      {noResults && filteredResults ? (
+      <article className="categorySelect">
+        <button className="editBtn" onClick={() => setGender(false)}>Women</button>
+        <button className="editBtn" onClick={() => setGender(true)}>Men</button>
+        <div className="editBtn sortDropdown">
+          <select
+            id="sortSelect"
+            value={selectedSort}
+            onChange={handleSortChange}
+          >
+            <option disabled value="">Sort</option>
+            <option value="ascending">Price (Low to High)</option>
+            <option value="descending">Price (High to Low)</option>
+            <option value="createdAtAscending">Date (Old to New)</option>
+            <option value="createdAtDescending">Date (New to Old)</option>
+          </select>
+        </div>
+      </article>
+      {filteredResults === undefined || filteredResults.length === 0 && (
         <div className="errorMsg">
           <p>
             Could not find any products from your search, but here are some
             things you might like.
           </p>
         </div>
-      ) : (
-        <></>
+     
       )}
 
       {/* Grid system for products */}
@@ -97,12 +129,28 @@ const Products = () => {
         <Loading />
       ) : (
         <article className="prodWrap">
-          {products &&
-            products.map((product) => (
-              <GalleryProductCard key={product._id} product={product} />
-            ))}
+          {filteredProducts &&
+            filteredProducts
+              .slice(0, 6)
+              .map((product) => (
+                <GalleryProductCard key={product._id} product={product} />
+              ))}
         </article>
       )}
+      {filteredProducts.length >= 6 ? (
+        <SelectedProduct2 gender={gender} setGender={setGender} />
+      ): <></>}
+      {/* Grid system for products */}
+      
+        <article className="prodWrap">
+          {filteredProducts &&
+            filteredProducts
+              .slice(6, 12)
+              .map((product) => (
+                <GalleryProductCard key={product._id} product={product} />
+              ))}
+        </article>
+      
     </main>
   );
 };

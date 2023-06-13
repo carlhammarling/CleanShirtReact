@@ -9,6 +9,7 @@ import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import ReviewProduct from "./pages/ReviewProduct/ReviewProduct";
 import Cart from "./pages/Cart/Cart";
 import SignIn from "./pages/SignIn/SignIn";
+import Contact from "./pages/Contact/Contact";
 import Checkout from "./pages/Checkout/Checkout";
 import Profile from "./pages/Profile/Profile";
 import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
@@ -43,31 +44,31 @@ const App = () => {
               element: <Cart />,
             },
             {
+              path: "/contact",
+              element: <Contact />,
+            },
+            {
               path: "/profile",
-              element: <Profile />
+              element: <Profile />,
             },
             {
               path: "/checkout",
-              element: <Checkout />
+              element: <Checkout />,
             },
             {
               path: "/signin",
-              element: <SignIn />
+              element: <SignIn />,
             },
             {
               path: "/ordersuccess",
-              element: <OrderSuccess />
+              element: <OrderSuccess />,
             },
             {
               path: "*",
               element: <NotFound />,
             },
-          ]    
+          ],
         },
-        // {
-        //   path: '/contact',
-        //   element: <Contact />
-        // }
       ],
     },
   ]);

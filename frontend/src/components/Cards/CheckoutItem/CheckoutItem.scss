@@ -10,8 +10,12 @@
     img {
       width: 80px;
       height: 100px;
-
       object-fit: cover;
+      transition: 0.2s ease-in-out;
+    
+    &:hover {
+      opacity: 0.85;
+    }
     }
 
     .itemRight {

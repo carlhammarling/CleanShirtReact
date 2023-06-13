@@ -30,11 +30,9 @@ const Cart = () => {
           <h1>Shopping cart </h1>
 
           <section id="cartList">
-            {cart && cart.length > 0 ? (
+            {cart && 
               cart.map((item) => <CartItem key={item.id} item={item} />)
-            ) : (
-              <p>It seems like your cart is empty.</p>
-            )}
+            }
           </section>
 
           <section id="checkout">

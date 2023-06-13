@@ -1,0 +1,20 @@
+@use "../../../styles/mixin";
+@import "../../../styles/variables";
+
+.aboutBanner {
+    @include mixin.flex(column, center, center);
+    position: relative;
+    z-index: -1;
+
+    img {
+        transform: scaleX(-1);
+    }       
+
+    .slogan {
+        padding: 27px;
+        position: absolute;
+        span {
+            @include mixin.logo; 
+        }
+    }       
+}

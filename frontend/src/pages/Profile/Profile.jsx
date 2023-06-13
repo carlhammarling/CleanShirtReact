@@ -6,6 +6,7 @@ import DeliveryInfo from "../../components/DeliveryInfo/DeliveryInfo";
 import { UserContext } from "../../contexts/UserContext";
 import CartItem from "../../components/Cards/CartItem/CartItem";
 import UserOrders from "../../components/UserOrders/UserOrders";
+import YellowHomeBanner from "../../components/Banners/YellowHomeBanner/YellowHomeBanner";
 
 const Profile = () => {
   const { userData } = useContext(UserContext);
@@ -16,10 +17,10 @@ const Profile = () => {
 
   return (
     <main className="profile">
-      <ProductsBanner />
+      <YellowHomeBanner />
       <article className="myAccount">
         <section className="accountInfo">
-          <h1>My account </h1>
+          <h1>My account <i className="fa-solid fa-user fa-sm"></i></h1>
           <h4>
             Hi {userData.firstName} {userData.lastName}! Here you can update you delivery info, find your
             orders and leave reviews on products.

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import "./Navbar.scss";
 import cleanShirtLogo from "../../styles/images/cleanShirtLogo.png";
 import { useSelector, useDispatch } from "react-redux";
@@ -67,14 +67,14 @@ const Navbar = () => {
         </div>
         <ul className="topRight">
           <li id="heart">
-            <NavLink to="/profile" aria-label="Profile">
+            <Link to="/profile" aria-label="Profile">
               <i className="fa-solid fa-user"></i>
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/cart" aria-label="Saved items">
+            <Link to="/cart" aria-label="Saved items">
               <i className="fa-solid fa-cart-shopping"></i>
-            </NavLink>
+            </Link>
             {totQty > 0 ? <span>{totQty}</span> : <></>}
           </li>
         </ul>

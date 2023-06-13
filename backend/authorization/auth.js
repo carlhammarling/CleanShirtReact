@@ -20,7 +20,7 @@ exports.verifyToken = (req, res, next) => {
     }
 }
 
-const admins = ['64302f1713a5a343ffe34988']
+const admins = ['64302f1713a5a343ffe34988', '64805a89824432db942f972b']
 //req.userId kommer från verifyToken
 exports.checkAdmin = (req, res, next) => {
     if(admins.includes(req.userId)) {

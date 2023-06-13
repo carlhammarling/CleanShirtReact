@@ -4,11 +4,36 @@
 .products {
   @include mixin.flex(column, flex-start, stretch);
   align-self: center;
+  gap: 1rem;
+
+  .categorySelect {
+    @include mixin.flex(row, space-between, center);
+    padding-inline: 10px;
+    padding-bottom: 0;
+    margin-inline: -10px;
+    overflow: scroll;
+    gap: 1rem;
+
+    .editBtn {
+      @include mixin.editBtn;
+      min-width: 100px;
+      // line-height: 1;
+    }
+  }
+  .categorySelect::-webkit-scrollbar {
+    width: 0.1rem;
+    height: 0;
+    background-color: transparent;
+  }
+  
+  .categorySelect::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
 
   .errorMsg {
     background-color: $lightRed;
     padding: 0.5rem;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
   }
 
   @media (min-width: 600px) {
@@ -20,8 +45,7 @@
     font-size: 140%;
   }
   article {
-    @include mixin.flex(column, flex-start, stretch);
-    margin-bottom: 10px;
+    // @include mixin.flex(column, flex-start, stretch);
 
     @media (min-width: 800px) {
       margin-bottom: 20px;
@@ -30,8 +54,15 @@
 
   .sortDropdown {
     @include mixin.form;
+    width: 300px;
      select {
+      height: min-content;
+      text-align: center;
+      border: 0;
+      color: $medGrey;
+      background-color: transparent;
       padding: 0 0.3rem;
+      margin: 0;
      }
   }
 

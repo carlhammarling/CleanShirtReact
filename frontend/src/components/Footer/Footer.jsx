@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Footer.scss'
 import cleanShirtLogo from '../../styles/images/cleanShirtLogo.png';
 
@@ -10,23 +10,24 @@ const Footer = () => {
         <div className="footTop">
             <ul>
                 <li>
-                    <NavLink to='/'>Home</NavLink> 
+                    <Link to='/'>Home</Link> 
                 </li>
                 <li>
-                    <NavLink to='/products'>Products</NavLink>
+                    <Link to='/products'>Products</Link>
                 </li>
                 {/* <li>
-                    <NavLink to='/references'>Reviews</NavLink>
+                    <Link to='/references'>Reviews</Link>
                 </li> */}
                 <li>
-                    <NavLink to='/profile'>Profile</NavLink>
+                    <Link to='/profile'>Profile</Link>
                 </li>
                 <li>
-                    <NavLink to='/contact'>Contact</NavLink>
+                    <Link to='/cart'>Cart</Link>
                 </li>
                 <li>
-                    <NavLink to='/cart'>Cart</NavLink>
+                    <Link to='/contact'>Contact</Link>
                 </li>
+                
             </ul>
             <img src={cleanShirtLogo} alt="Clean Shirt Logo" width="120" />
             <p>Free shipping over 100$ |  Terms & Conditions Security & Cookies |  Sign up for our newspaper.</p>

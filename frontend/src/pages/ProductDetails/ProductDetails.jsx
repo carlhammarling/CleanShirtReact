@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ProductDetails.scss";
 import Loading from "../../components/Loading/Loading";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import OneReview from "../../components/Cards/OneReview/OneReview";
 import { useSelector, useDispatch } from "react-redux";
@@ -76,10 +76,14 @@ const ProductDetails = () => {
     setSuccess(true);
     setTimeout(() => {
       setSuccess(false);
-      navigate("/products");
+      navigate(-1);
     }, 1000);
   };
 
+  const goBack = () => {
+    navigate(-1)
+  }
+ 
   //Prevent site to load if there is no product
   if (!oneProduct) {
     return <Loading />;
@@ -88,15 +92,20 @@ const ProductDetails = () => {
   return (
     // <!-- MAIN CONTENT  -->
     <main className="productDetails">
-      <article id="output">
-        <img id="productImg" src={oneProduct.imgURL} alt={oneProduct.name} />
+      <article className="oneProduct">
+        <img src={oneProduct.imgURL} alt={oneProduct.name} />
         {/* <!-- CONTENT --> */}
+            <Link className="goBack" onClick={goBack}>Tillbaka</Link>
         <section id="productInfo">
-          <h2>{`${oneProduct.name.toUpperCase()} - ${
-            oneProduct.description
-          }`}</h2>
+          <h2>
+            {`${oneProduct.name.toUpperCase()} - ${oneProduct.description.slice(
+              0,
+              50
+            )}`}
+            {oneProduct.description.length > 50 ? "..." : ""}
+          </h2>
 
-          <span className="price">{oneProduct.price}.99 €</span>
+          <span className="price">{oneProduct.price}.00 €</span>
           <h3>
             {stars} (Out of {oneProduct.comments.length} reviews)
           </h3>
@@ -147,13 +156,15 @@ const ProductDetails = () => {
           </form>
         </section>
         {/* Only shows reviews-div if there are any. */}
-        {oneProduct.comments.length > 1 && (
+        {oneProduct.comments.length > 0 && (
           <section id="reviewList">
             <h1>Reviews </h1>
-            {oneProduct &&
-              oneProduct.comments.map((comment) => (
-                <OneReview key={comment._id} comment={comment} />
-              ))}
+            <reviews>
+              {oneProduct &&
+                oneProduct.comments.map((comment) => (
+                  <OneReview key={comment._id} comment={comment} />
+                ))}
+            </reviews>
           </section>
         )}
       </article>

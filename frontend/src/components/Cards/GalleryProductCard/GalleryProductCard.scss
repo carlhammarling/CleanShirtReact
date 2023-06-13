@@ -11,6 +11,12 @@
   img {
     height: 220px;
     object-fit: cover;
+    overflow: hidden;
+    transition: .2s ease-in-out;
+
+    &:hover {
+      opacity: 0.85;
+    }
 
     @media (min-width: 600px) {
       height: 330px;
@@ -27,11 +33,11 @@
     justify-content: space-evenly;
     height: 5em;
   }
-  .buy {
-    @include mixin.flex(row, space-between, center);
-  }
 
-  .addBtn {
-    @include mixin.addBtn;
+  .price {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: $medGrey;
+    font-size: .9em;
   }
 }

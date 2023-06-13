@@ -5,6 +5,7 @@ import axios from "axios";
 
 const ProfileForm = ({ setShowEdit }) => {
   const { userData, setUserData, token } = useContext(UserContext);
+  const [success, setSuccess] = useState(false);
 
   const [updatedProfile, setUpdateProfile] = useState({
     firstName: userData.firstName,
@@ -28,14 +29,18 @@ const ProfileForm = ({ setShowEdit }) => {
     e.preventDefault();
 
     // Check if any field was updated
-  const hasUpdates = Object.keys(updatedProfile).some((field) => {
-    return updatedProfile[field] !== userData[field];
-  });
+    const hasUpdates = Object.keys(updatedProfile).some((field) => {
+      return updatedProfile[field] !== userData[field];
+    });
 
-  if (!hasUpdates) {
-    setShowEdit((state) => !state);
-    return;
-  }
+    if (!hasUpdates) {
+      setSuccess(true);
+      setTimeout(() => {
+        setSuccess(false);
+        setShowEdit((state) => !state);
+      }, 1000);
+      return;
+    }
     //If it has updates, do the patch
     axios
       .patch("http://localhost:8080/api/users/update", updatedProfile, {
@@ -48,7 +53,11 @@ const ProfileForm = ({ setShowEdit }) => {
         console.log(res);
         if (res.status == 200) {
           setUserData(res.data);
-          setShowEdit((state) => !state);
+          setSuccess(true);
+          setTimeout(() => {
+            setSuccess(false);
+            setShowEdit((state) => !state);
+          }, 1000);
         }
       })
       .catch((error) => console.error(error));
@@ -141,9 +150,15 @@ const ProfileForm = ({ setShowEdit }) => {
         />
       </div>
 
-      <button className="btnShop" id="send">
-        UPDATE PROFILE
-      </button>
+      {success ? (
+        <button>
+          UPDATED <i className="fa-solid fa-circle-check"></i>
+        </button>
+      ) : (
+        <button className="btnShop" id="send">
+          UPDATE PROFILE
+        </button>
+      )}
     </form>
   );
 };

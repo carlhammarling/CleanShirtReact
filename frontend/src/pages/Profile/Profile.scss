@@ -2,6 +2,9 @@
 @import "../../styles/variables";
 
 .profile {
+  .homeBanner .bottom {
+    display: none;
+  }
   article.myAccount {
     line-height: 1.5;
     display: grid;
@@ -9,6 +12,10 @@
 
     section {
       border-bottom: 1px solid $grey;
+
+      &:last-child {
+        border-bottom: 0;
+      }
     }
 
     .accountInfo {

@@ -60,19 +60,16 @@ const handleChange = (e) => {
         },
       })
       if(res.data) {
-        navigate('/products/' + id)
+        setShowMsg(false);
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+          navigate('/products/' + id)
+        }, 1000);
       }
     } catch (err) {
       console.log(err)
     }
-
-
-
-    setShowMsg(false);
-    setSuccess(true);
-    setTimeout(() => {
-      setSuccess(false);
-    }, 1000);
   };
 
   //Prevent site to load if there is no product

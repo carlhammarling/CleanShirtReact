@@ -2,11 +2,16 @@
 @import "../../styles/variables";
 
 .productDetails {
-  article {
+  article.oneProduct {
+    position: relative;
     display: grid;
     gap: 1rem;
     justify-content: center;
     line-height: 1.5;
+
+    .goBack {
+      position: absolute;
+    }
 
     @media (min-width: 630px) {
       margin-bottom: 20px;
@@ -19,6 +24,8 @@
       width: 100%;
       max-width: 600px;
       object-fit: cover;
+      height: 400px;
+      overflow: hidden;
       @media (min-width: 800px) {
         object-fit: cover;
         height: 100%;
@@ -40,7 +47,7 @@
         margin-block: 0.5rem;
       }
 
-      & > :last-child{
+      & > :last-child {
         margin-block: 0rem;
       }
 
@@ -73,8 +80,13 @@
     }
     #reviewList {
       padding: 10px;
-      border: 1px solid $medGrey;
+      border: 1px solid $lightMedGrey;
       @include mixin.flex(column, flex-start, flex-start);
+
+      & > * {
+        @include mixin.flex(column, flex-start, flex-start);
+      gap: 1rem;
+      }
     }
     @media (min-width: 800px) {
       display: grid;

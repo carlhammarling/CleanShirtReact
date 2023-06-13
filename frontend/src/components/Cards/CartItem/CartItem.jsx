@@ -17,15 +17,18 @@ const CartItem = ({ item }) => {
         {/* Change quantity */}
 
         <div className="quantity">
-          <p id="qty">Quantity:</p>
+          <p>Quantity: </p>
+          <div className="qtySelect">
+
           <button onClick={() => dispatch(decrementOneProduct(item))}>
           <i className="fa-solid fa-minus"></i>
           </button>
-          <p id="qty">{item.quantity}</p>
+          <p className="qty">{item.quantity}</p>
 
           <button onClick={() => dispatch(incrementOneProduct(item))}>
           <i className="fa-solid fa-plus"></i>
           </button>
+          </div>
         </div>
 
 

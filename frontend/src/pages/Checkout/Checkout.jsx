@@ -59,7 +59,11 @@ const Checkout = () => {
     }));
   }, [cart, activePayment]);
 
+
+
   //Placing order
+  const [success, setSuccess] = useState(false);
+
   const placeOrder = async (e) => {
     e.preventDefault();
 
@@ -98,8 +102,13 @@ const Checkout = () => {
       if (res.data) {
         setShowMsg(null);
         dispatch(clearCart());
+        setSuccess(true);
         getUserData();
-        navigate('/ordersuccess')
+        setTimeout(() => {
+          setSuccess(false);
+          navigate('/ordersuccess')
+        }, 1000);
+        
       }
     } catch (err) {
       console.log(err);
@@ -179,9 +188,16 @@ const Checkout = () => {
             <></>
           )}
 
-          <button className="bigAddBtn" onClick={placeOrder}>
+          
+          {success ? (
+              <button className="bigAddBtn">
+                ORDER PLACED <i className="fa-solid fa-circle-check"></i>
+              </button>
+            ) : (
+              <button className="bigAddBtn" onClick={placeOrder}>
             PLACE ORDER <i className="fa-solid fa-cart-shopping"></i>
           </button>
+            )}
         </section>
       </article>
     </main>
