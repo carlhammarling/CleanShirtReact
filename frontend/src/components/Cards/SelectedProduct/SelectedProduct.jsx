@@ -8,7 +8,6 @@ const SelectedProduct = ({ item }) => {
       <Link className="blocklink" to="/products"></Link>
       <img
         src={item.imgURL}
-        alt="Man in Clean Shirt"
         style={{ width: "100%" }}
       />
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useSelector } from "react-redux";
-import { UserContext } from "../../contexts/UserContext";
+import { Context } from "../../contexts/Context";
 import "./Products.scss";
 import ProductsBanner from "../../components/Banners/ProductsBanner/ProductsBanner";
 import GalleryProductCard from "../../components/Cards/GalleryProductCard/GalleryProductCard";
@@ -8,18 +8,13 @@ import axios from "axios";
 import Loading from "../../components/Loading/Loading";
 import SelectedProduct2 from "../../components/Cards/SelectedProduct2/SelectedProduct2";
 
-
-
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [isSortingInitialized, setIsSortingInitialized] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const filteredResults = useSelector((state) => state.search);
   const [isLoading, setIsLoading] = useState(true);
-  const { selectedSort, setSelectedSort } = useContext(UserContext);
-  const { gender, setGender } = useContext(UserContext);
-
-
+  const { selectedSort, setSelectedSort, gender, setGender } = useContext(Context);
 
   //Fetching all the products and storing them localy
   useEffect(() => {
@@ -36,8 +31,6 @@ const Products = () => {
     fetchData();
   }, []);
 
-
-
   //If there are no results of the filtering/search, Show error message and otherproducts instead
   useEffect(() => {
     if (filteredResults.length > 0) {
@@ -49,14 +42,11 @@ const Products = () => {
     }
   }, [filteredResults]);
 
-
-
-//Runs the sorting when selecting an option in the dropdown
+  //Runs the sorting when selecting an option in the dropdown
   const handleSortChange = (e) => {
     const sortOption = e.target.value;
     setSelectedSort(sortOption);
   };
-
 
   // Sorting products names on date or price, checks for initial value
   useEffect(() => {
@@ -84,9 +74,7 @@ const Products = () => {
     } else {
       setIsSortingInitialized(true);
     }
-  }, [selectedSort, filteredProducts, isSortingInitialized]);
-
-
+  }, [selectedSort, filteredProducts.length, isSortingInitialized]);
 
   //Displaying products based on weather you have pushed Women or Men
   useEffect(() => {
@@ -102,8 +90,6 @@ const Products = () => {
       setFilteredProducts(menProducts);
     }
   }, [gender, products]);
-
-  
 
   if (!filteredProducts) {
     return <Loading />;

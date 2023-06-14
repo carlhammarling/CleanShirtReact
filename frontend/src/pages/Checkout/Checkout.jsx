@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Checkout.scss";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext";
+import { Context } from "../../contexts/Context";
 import CheckoutItem from "../../components/Cards/CheckoutItem/CheckoutItem";
 import DeliveryInfo from "../../components/DeliveryInfo/DeliveryInfo";
 import axios from "axios";
@@ -12,7 +12,7 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { cart, totAmount, totQty } = useSelector((state) => state.cart);
-  const { userData, token, getUserData } = useContext(UserContext);
+  const { userData, token, getUserData } = useContext(Context);
 
   if (!userData) {
     return <Navigate to="/signin" />;
@@ -59,8 +59,6 @@ const Checkout = () => {
     }));
   }, [cart, activePayment]);
 
-
-
   //Placing order
   const [success, setSuccess] = useState(false);
 
@@ -106,9 +104,8 @@ const Checkout = () => {
         getUserData();
         setTimeout(() => {
           setSuccess(false);
-          navigate('/ordersuccess')
+          navigate("/ordersuccess");
         }, 1000);
-        
       }
     } catch (err) {
       console.log(err);
@@ -188,16 +185,15 @@ const Checkout = () => {
             <></>
           )}
 
-          
           {success ? (
-              <button className="bigAddBtn">
-                ORDER PLACED <i className="fa-solid fa-circle-check"></i>
-              </button>
-            ) : (
-              <button className="bigAddBtn" onClick={placeOrder}>
-            PLACE ORDER <i className="fa-solid fa-cart-shopping"></i>
-          </button>
-            )}
+            <button className="bigAddBtn">
+              ORDER PLACED <i className="fa-solid fa-circle-check"></i>
+            </button>
+          ) : (
+            <button className="bigAddBtn" onClick={placeOrder}>
+              PLACE ORDER <i className="fa-solid fa-cart-shopping"></i>
+            </button>
+          )}
         </section>
       </article>
     </main>

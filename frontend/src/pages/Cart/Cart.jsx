@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./Cart.scss";
 import CartItem from "../../components/Cards/CartItem/CartItem";
@@ -16,10 +16,6 @@ const Cart = () => {
       setDelivery(5);
     }
   }, [totAmount]);
-
-  useEffect(() => {
-    console.log(cart);
-  }, []);
 
   return (
     <main className="cart">

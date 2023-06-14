@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { UserContext } from "../../contexts/UserContext";
+import { Context } from "../../contexts/Context";
 import "./Register.scss";
 
 const Register = () => {
-  const { setToken, userData } = useContext(UserContext);
+  const { setToken, userData } = useContext(Context);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -59,14 +59,11 @@ const Register = () => {
         formData
       );
       if (res.data) {
-
         // //Setting user
         setToken(res.data);
 
-
         //Save usertoken
         localStorage.setItem("token", res.data);
-        
 
         //Resets the login-form
         setFormData({
@@ -81,7 +78,6 @@ const Register = () => {
           country: "",
           mobile: "",
         });
-        
       }
     } catch (err) {
       if (err.response.status == 409) {
@@ -91,14 +87,14 @@ const Register = () => {
     }
   };
 
-    //Waiting for userData to be updated before navigating
+  //Waiting for userData to be updated before navigating
 
   useEffect(() => {
-    if(!userData) {
-      return
+    if (!userData) {
+      return;
     }
-    navigate(-1)
-  }, [userData])
+    navigate(-1);
+  }, [userData]);
 
   return (
     <div className="registerForm">
@@ -158,8 +154,9 @@ const Register = () => {
 
         <p className="error">{error}</p>
 
-        <button>REGISTER NEW USER <i className="fa-solid fa-user"></i>
-</button>
+        <button>
+          REGISTER NEW USER <i className="fa-solid fa-user"></i>
+        </button>
       </form>
     </div>
   );

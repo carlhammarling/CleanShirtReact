@@ -1,13 +1,11 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { Context } from "../../contexts/Context";
 import ProfileForm from "../forms/ProfileForm/ProfileForm";
-import './DeliveryInfo.scss'
+import "./DeliveryInfo.scss";
 
 const DeliveryInfo = () => {
-  const { userData } = useContext(UserContext);
+  const { userData } = useContext(Context);
   const [showEdit, setShowEdit] = useState(false);
-
-  
 
   if (!userData) {
     return;
@@ -18,12 +16,14 @@ const DeliveryInfo = () => {
         <h2>
           Delivery info <i className="fa-solid fa-house fa-xs"></i>
         </h2>
-        
-        <button className="editBtn" onClick={() => setShowEdit(state => !state)}>
+
+        <button
+          className="editBtn"
+          onClick={() => setShowEdit((state) => !state)}
+        >
           edit <i className="fa-solid fa-pen fa-xs"></i>
         </button>
       </div>
-
 
       {showEdit ? (
         <ProfileForm setShowEdit={setShowEdit} />

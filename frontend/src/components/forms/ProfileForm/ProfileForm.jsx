@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import "./ProfileForm.scss";
-import { UserContext } from "../../../contexts/UserContext";
+import { Context } from "../../../contexts/Context";
 import axios from "axios";
 
 const ProfileForm = ({ setShowEdit }) => {
-  const { userData, setUserData, token } = useContext(UserContext);
+  const { userData, setUserData, token } = useContext(Context);
   const [success, setSuccess] = useState(false);
 
   const [updatedProfile, setUpdateProfile] = useState({

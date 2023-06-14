@@ -3,11 +3,11 @@ import "./ReviewProduct.scss";
 import Loading from "../../components/Loading/Loading";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import axios from "axios";
-import { UserContext } from "../../contexts/UserContext";
+import { Context } from "../../contexts/Context";
 
 const ReviewProduct = () => {
   const { id } = useParams();
-  const { token } = useContext(UserContext);
+  const { token } = useContext(Context);
   const navigate = useNavigate();
 
   //Makes sure that you are logged in before you can access the review section.

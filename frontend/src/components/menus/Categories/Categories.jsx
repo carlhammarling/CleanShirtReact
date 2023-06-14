@@ -1,13 +1,11 @@
 import { useContext } from "react";
-import { UserContext } from "../../../contexts/UserContext";
-import './Categories.scss'
-import { Link } from 'react-router-dom'
+import { Context } from "../../../contexts/Context";
+import "./Categories.scss";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
-
-  const { gender, setGender, selectedSort, setSelectedSort } = useContext(UserContext)
-
-
+  const { gender, setGender, selectedSort, setSelectedSort } =
+    useContext(Context);
 
   return (
     <article className="categories">
@@ -17,27 +15,46 @@ const Categories = () => {
       <section>
         <ul>
           <li>
-            <Link to="/products" onClick={() => setSelectedSort("createdAtDescending")}>
+            <Link
+              to="/products"
+              onClick={() => setSelectedSort("createdAtDescending")}
+            >
               News<i className="fa-solid fa-angles-right fa-xs"></i>
             </Link>
           </li>
           <li>
-            <Link to="/products" onClick={() => setSelectedSort('')}>
+            <Link to="/products" onClick={() => setSelectedSort("")}>
               T-Shirts<i className="fa-solid fa-angles-right fa-xs"></i>
             </Link>
           </li>
           <li>
-            <Link to="/products" onClick={() => {setGender(false); setSelectedSort('');}}>
+            <Link
+              to="/products"
+              onClick={() => {
+                setGender(false);
+                setSelectedSort("");
+              }}
+            >
               Women<i className="fa-solid fa-angles-right fa-xs"></i>
             </Link>
           </li>
           <li>
-            <Link to="/products" onClick={() => {setGender(true); setSelectedSort('');}}>
+            <Link
+              to="/products"
+              onClick={() => {
+                setGender(true);
+                setSelectedSort("");
+              }}
+            >
               Men<i className="fa-solid fa-angles-right fa-xs"></i>
             </Link>
           </li>
           <li>
-            <Link className="red" to="/products" onClick={() => setSelectedSort("ascending")}>
+            <Link
+              className="red"
+              to="/products"
+              onClick={() => setSelectedSort("ascending")}
+            >
               On Sale<i className="fa-solid fa-angles-right fa-xs"></i>
             </Link>
           </li>
