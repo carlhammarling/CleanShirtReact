@@ -17,17 +17,6 @@ const ReviewProduct = () => {
 
   const [oneProduct, setOneProduct] = useState();
 
-  const [rating, setRating] = useState("");
-
-  // Function to set the rating
-  const handleRating = (selectedRating) => {
-    setRating(selectedRating);
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      rating: selectedRating.toString(),
-    }));
-  };
-
   //Loads the selected product to the page
   useEffect(() => {
     axios
@@ -49,12 +38,7 @@ const ReviewProduct = () => {
   const handleChange = (e) => {
     e.preventDefault();
 
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-      rating: rating,
-    });
-    console.log(formData);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const [showMsg, setShowMsg] = useState(false);
@@ -100,10 +84,10 @@ const ReviewProduct = () => {
   return (
     // <!-- MAIN CONTENT  -->
     <main className="reviewProduct">
-      <article className="oneProduct">
-        <img src={oneProduct.imgURL} alt={oneProduct.name} />
+      <article id="output">
+        <img id="productImg" src={oneProduct.imgURL} alt={oneProduct.name} />
         {/* <!-- CONTENT --> */}
-        <section className="productInfo">
+        <section id="productInfo">
           <h2>{`${oneProduct.name.toUpperCase()} - ${
             oneProduct.description
           }`}</h2>
@@ -115,41 +99,24 @@ const ReviewProduct = () => {
           <form onSubmit={postReview}>
             {/* Rating input */}
             <div className="input-group">
-              {/* <label className="label" htmlFor="rating">
+              <label className="label" htmlFor="rating">
                 How many stars would you like to give this product?
-              </label> */}
-              <h3 className="stars">
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 1 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(1)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 2 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(2)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 3 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(3)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 4 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(4)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 5 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(5)}
-                ></i>
-              </h3>
+              </label>
+              <select
+                className="input"
+                name="rating"
+                value={formData.rating}
+                onChange={handleChange}
+              >
+                <option defaultValue disabled value="">
+                  Choose a rating
+                </option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="1">1</option>
+              </select>
             </div>
 
             <div className="input-group">

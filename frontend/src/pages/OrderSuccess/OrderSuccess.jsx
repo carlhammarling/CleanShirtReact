@@ -19,7 +19,7 @@ const OrderSuccess = () => {
         </h4>
       </section>
       <Link className="bigAddBtn" to="/profile">
-        TAKE ME TO THE USER PAGE
+        TAKE ME TO THE USER PAGE <i className="fa-solid fa-user"></i>
       </Link>
     </div>
   );

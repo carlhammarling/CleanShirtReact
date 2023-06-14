@@ -16,6 +16,8 @@ const Navbar = () => {
 
   const [toggleMenu, setToggleMenu] = useState(false);
   const [input, setInput] = useState('')
+  const [isScrolled, setIsScrolled] = useState(false);
+
 
   const fetchData = (value) => {
     axios.get("http://localhost:8080/api/products")
@@ -45,6 +47,19 @@ const Navbar = () => {
     setInput(value)
     fetchData(value)
   }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      const isCurrentlyScrolled = scrollTop > 0;
+      setIsScrolled(isCurrentlyScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header>
@@ -79,11 +94,11 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="search">
+      <div className={`search ${isScrolled ? "scrolled" : ""}`}>
         <div className="logo">
           <i className="fa-solid fa-magnifying-glass fa-lg"></i>
         </div>
-        <input type="search" placeholder="Search" value={input} onChange={(e) => handleChange(e.target.value)} />
+        <input type="text" placeholder="Search" value={input} onChange={(e) => handleChange(e.target.value)} />
       </div>
         <DropDown setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
     </header>

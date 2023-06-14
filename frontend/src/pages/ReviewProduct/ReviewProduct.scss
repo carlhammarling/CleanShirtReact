@@ -2,14 +2,14 @@
 @import "../../styles/variables";
 
 .reviewProduct {
-  article {
+  article.oneProduct {
     display: grid;
+    gap: 1rem;
     justify-content: center;
-    margin-bottom: 10px;
     line-height: 1.5;
 
-    @media (min-width: 630px) {
-      margin-bottom: 20px;
+    .productInfo {
+      margin-block: .5rem;
     }
 
     h2 {
@@ -19,6 +19,8 @@
       width: 100%;
       max-width: 600px;
       object-fit: cover;
+      height: 400px;
+      overflow: hidden;
       @media (min-width: 800px) {
         object-fit: cover;
         height: 100%;
@@ -30,15 +32,7 @@
       color: $medGrey;
     }
 
-    section {
-      max-width: 600px;
-      & > * {
-        margin-block: 0.5rem;
-      }
-      @media (min-width: 800px) {
-        margin-top: 0;
-      }
-    }
+ 
 
     .leaveReview {
       form {
@@ -48,6 +42,18 @@
         }
         label {
           font-family: "Abel", sans-serif;
+        }
+
+        .stars {
+          font-size: 2rem;
+          letter-spacing: .5rem;
+          text-align: center;
+          .fa-star {
+            
+              color: $starYellow;
+    
+          }
+
         }
       }
 

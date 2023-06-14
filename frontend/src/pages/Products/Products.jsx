@@ -98,8 +98,8 @@ const Products = () => {
     <main className="products">
       <ProductsBanner />
       <article className="categorySelect">
-        <button className="editBtn" onClick={() => setGender(false)}>Women</button>
-        <button className="editBtn" onClick={() => setGender(true)}>Men</button>
+        <button className={`editBtn ${!gender ? 'active' : ''}`} onClick={() => setGender(false)}>Women</button>
+        <button className={`editBtn ${gender ? 'active' : ''}`} onClick={() => setGender(true)}>Men</button>
         <div className="editBtn sortDropdown">
           <select
             id="sortSelect"

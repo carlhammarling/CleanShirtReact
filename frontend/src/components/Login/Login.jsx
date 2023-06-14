@@ -101,7 +101,8 @@ const Login = () => {
         <p className="error">{error}</p>
 
         <button>
-          LOGIN
+          LOGIN <i className="fa-solid fa-user"></i>
+
         </button>
       </form>
     </div>

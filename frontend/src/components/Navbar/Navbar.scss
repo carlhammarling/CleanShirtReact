@@ -74,7 +74,11 @@ header {
     @include mixin.flex(row, flex-start, stretch);
     background: white;
     // border-bottom: 1px solid $grey;
-    box-shadow: rgba(99, 99, 99, 0.03) 0px 5px 5px 0px;
+    // box-shadow: rgba(99, 99, 99, 0.03) 0px 5px 5px 0px;
+    transition: .2s ease;
+  }
+  .search.scrolled {
+    box-shadow: rgba(99, 99, 99, 0.1) 0px 10px 10px 0px;
   }
   .logo {
     @include mixin.flex(row, center, center);

@@ -66,7 +66,7 @@ const Contact = () => {
                 </select>
               </div>
               <button className="btnShop" id="send">
-                SEND REQUEST
+                SEND REQUEST <i className="fa-solid fa-paper-plane"></i>
               </button>
             </div>
           </form>

@@ -158,7 +158,8 @@ const Register = () => {
 
         <p className="error">{error}</p>
 
-        <button>REGISTER NEW USER</button>
+        <button>REGISTER NEW USER <i className="fa-solid fa-user"></i>
+</button>
       </form>
     </div>
   );

@@ -17,6 +17,8 @@
 
     .bigAddBtn {
         @include mixin.bigAddBtn;
+        position: absolute;
+        bottom: 0;
         display: block;
         text-align: center;
         width: 100%;

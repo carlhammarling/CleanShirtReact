@@ -10,7 +10,7 @@ const CartItem = ({ item }) => {
       <img src={item.product.imgURL} alt="Shirt" />
       <div className="itemRight">
         <h3>{item.product.name}</h3>
-        <p>{item.product.description}</p>
+        <p>{item.product.description.slice(0,65)}</p>
         <p id="price">Price: {item.product.price}.00 €</p>
         <p id="size">Size: {item.product.size}</p>
 

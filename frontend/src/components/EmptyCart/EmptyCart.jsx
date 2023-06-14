@@ -15,7 +15,7 @@ const EmptyCart = () => {
         <h4>Once you have added products to the cart they will appear here.</h4>
       </section>
       <Link className="takeMeBack" to="/products">
-        TAKE ME TO THE PRODUCTS
+        TAKE ME TO THE PRODUCTS <i className="fa-solid fa-shirt"></i>
       </Link>
     </div>
   );

@@ -31,16 +31,16 @@
         gap: 1rem;
 
         & > :first-child {
-          background-color: $yellow;
+          background-color: #fff692;
         }
         & > :nth-child(2) {
-          background-color: $orange;
+          background-color: $yellow;
         }
         & > :nth-child(3) {
           background-color: $starYellow;
         }
         & > :nth-child(4) {
-          background-color: $red;
+          background-color: rgb(255, 106, 37);
         }
         & > :nth-child(5) {
           border: 1px solid $medGrey;

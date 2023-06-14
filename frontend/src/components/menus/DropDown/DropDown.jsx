@@ -32,26 +32,33 @@ const DropDown = ({ setToggleMenu, toggleMenu }) => {
             <ul>
               <DropDownItem
                 link={"/"}
-                text={"Home"}
+                icon={<i className="fa-solid fa-house fa-xs"></i>}
+                text={" Home"}
                 setToggleMenu={setToggleMenu}
               />
               <DropDownItem
                 link={"/products"}
+                icon={<i className="fa-solid fa-shirt fa-xs"></i>}
                 text={"Products"}
                 setToggleMenu={setToggleMenu}
               />
               <DropDownItem
                 link={"/profile"}
+                icon={<i className="fa-solid fa-user fa-xs"></i>}
+
                 text={"Profile"}
                 setToggleMenu={setToggleMenu}
               />
               <DropDownItem
                 link={"/cart"}
+                icon={<i className="fa-solid fa-cart-shopping fa-xs"></i>}
+
                 text={"Cart"}
                 setToggleMenu={setToggleMenu}
               />
               <DropDownItem
                 link={"/contact"}
+                icon={<i className="fa-solid fa-paper-plane fa-xs"></i>}
                 text={"Contact"}
                 setToggleMenu={setToggleMenu}
               />
