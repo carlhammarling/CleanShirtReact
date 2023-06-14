@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useSelector } from "react-redux";
+import { UserContext } from "../../contexts/UserContext";
 import "./Products.scss";
 import ProductsBanner from "../../components/Banners/ProductsBanner/ProductsBanner";
 import GalleryProductCard from "../../components/Cards/GalleryProductCard/GalleryProductCard";
 import axios from "axios";
 import Loading from "../../components/Loading/Loading";
 import SelectedProduct2 from "../../components/Cards/SelectedProduct2/SelectedProduct2";
+
+
+
 const Products = () => {
-
-
   const [products, setProducts] = useState([]);
+  const [isSortingInitialized, setIsSortingInitialized] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const filteredResults = useSelector((state) => state.search);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedSort, setSelectedSort] = useState("");
-  const [gender, setGender] = useState(false);
+  const { selectedSort, setSelectedSort } = useContext(UserContext);
+  const { gender, setGender } = useContext(UserContext);
+
 
 
   //Fetching all the products and storing them localy
@@ -28,14 +32,13 @@ const Products = () => {
         console.log(err);
         setIsLoading(false);
       }
-    }
-    fetchData()
+    };
+    fetchData();
   }, []);
 
 
 
-
-  //If there are no results of the filtering, Show error message and otherproducts instead
+  //If there are no results of the filtering/search, Show error message and otherproducts instead
   useEffect(() => {
     if (filteredResults.length > 0) {
       setFilteredProducts(filteredResults);
@@ -48,35 +51,44 @@ const Products = () => {
 
 
 
-//Sorting products nasem on date or price.
-  const handleSortChange = (event) => {
-    const sortOption = event.target.value;
+//Runs the sorting when selecting an option in the dropdown
+  const handleSortChange = (e) => {
+    const sortOption = e.target.value;
     setSelectedSort(sortOption);
-
-    let sortedProducts = [...filteredProducts];
-    if (sortOption === "ascending") {
-      sortedProducts = sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (sortOption === "descending") {
-      sortedProducts = sortedProducts.sort((a, b) => b.price - a.price);
-    } else if (sortOption === "createdAtAscending") {
-      sortedProducts = sortedProducts.sort((a, b) => {
-        const dateA = new Date(a.createdAt);
-        const dateB = new Date(b.createdAt);
-        return dateA.getTime() - dateB.getTime();
-      });
-    } else if (sortOption === "createdAtDescending") {
-      sortedProducts = sortedProducts.sort((a, b) => {
-        const dateA = new Date(a.createdAt);
-        const dateB = new Date(b.createdAt);
-        return dateB.getTime() - dateA.getTime();
-      });
-    }
-
-    setFilteredProducts(sortedProducts);
   };
 
 
-  //Displaying products basen on weather you have pushed Women or Men
+  // Sorting products names on date or price, checks for initial value
+  useEffect(() => {
+    if (isSortingInitialized) {
+      let sortedProducts = [...filteredProducts];
+      if (selectedSort === "ascending") {
+        sortedProducts = sortedProducts.sort((a, b) => a.price - b.price);
+      } else if (selectedSort === "descending") {
+        sortedProducts = sortedProducts.sort((a, b) => b.price - a.price);
+      } else if (selectedSort === "createdAtAscending") {
+        sortedProducts = sortedProducts.sort((a, b) => {
+          const dateA = new Date(a.createdAt);
+          const dateB = new Date(b.createdAt);
+          return dateA.getTime() - dateB.getTime();
+        });
+      } else if (selectedSort === "createdAtDescending") {
+        sortedProducts = sortedProducts.sort((a, b) => {
+          const dateA = new Date(a.createdAt);
+          const dateB = new Date(b.createdAt);
+          return dateB.getTime() - dateA.getTime();
+        });
+      }
+
+      setFilteredProducts(sortedProducts);
+    } else {
+      setIsSortingInitialized(true);
+    }
+  }, [selectedSort, filteredProducts, isSortingInitialized]);
+
+
+
+  //Displaying products based on weather you have pushed Women or Men
   useEffect(() => {
     if (!gender) {
       const womenProducts = products.filter((product) =>
@@ -91,6 +103,8 @@ const Products = () => {
     }
   }, [gender, products]);
 
+  
+
   if (!filteredProducts) {
     return <Loading />;
   }
@@ -98,15 +112,33 @@ const Products = () => {
     <main className="products">
       <ProductsBanner />
       <article className="categorySelect">
-        <button className={`editBtn ${!gender ? 'active' : ''}`} onClick={() => setGender(false)}>Women</button>
-        <button className={`editBtn ${gender ? 'active' : ''}`} onClick={() => setGender(true)}>Men</button>
+        <button
+          className={`editBtn ${!gender ? "active" : ""}`}
+          onClick={() => {
+            setGender(false);
+            setSelectedSort("");
+          }}
+        >
+          Women
+        </button>
+        <button
+          className={`editBtn ${gender ? "active" : ""}`}
+          onClick={() => {
+            setGender(true);
+            setSelectedSort("");
+          }}
+        >
+          Men
+        </button>
         <div className="editBtn sortDropdown">
           <select
             id="sortSelect"
             value={selectedSort}
             onChange={handleSortChange}
           >
-            <option disabled value="">Sort</option>
+            <option disabled value="">
+              Sort
+            </option>
             <option value="ascending">Price (Low to High)</option>
             <option value="descending">Price (High to Low)</option>
             <option value="createdAtAscending">Date (Old to New)</option>
@@ -114,15 +146,15 @@ const Products = () => {
           </select>
         </div>
       </article>
-      {filteredResults === undefined || filteredResults.length === 0 && (
-        <div className="errorMsg">
-          <p>
-            Could not find any products from your search, but here are some
-            things you might like.
-          </p>
-        </div>
-     
-      )}
+      {filteredResults === undefined ||
+        (filteredResults.length === 0 && (
+          <div className="errorMsg">
+            <p>
+              Could not find any products from your search, but here are some
+              things you might like.
+            </p>
+          </div>
+        ))}
 
       {/* Grid system for products */}
       {isLoading ? (
@@ -139,18 +171,19 @@ const Products = () => {
       )}
       {filteredProducts.length >= 6 ? (
         <SelectedProduct2 gender={gender} setGender={setGender} />
-      ): <></>}
+      ) : (
+        <></>
+      )}
       {/* Grid system for products */}
-      
-        <article className="prodWrap">
-          {filteredProducts &&
-            filteredProducts
-              .slice(6, 12)
-              .map((product) => (
-                <GalleryProductCard key={product._id} product={product} />
-              ))}
-        </article>
-      
+
+      <article className="prodWrap">
+        {filteredProducts &&
+          filteredProducts
+            .slice(6, 12)
+            .map((product) => (
+              <GalleryProductCard key={product._id} product={product} />
+            ))}
+      </article>
     </main>
   );
 };

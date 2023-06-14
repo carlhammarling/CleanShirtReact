@@ -9,6 +9,12 @@ const UserContextProvider = ({ children }) => {
 
       const [userData, setUserData] = useState()
 
+      const [gender, setGender] = useState(false);
+
+      const [selectedSort, setSelectedSort] = useState("");
+
+
+
       
   const getUserData = () => {
     if (!token) {
@@ -40,33 +46,12 @@ const UserContextProvider = ({ children }) => {
 
 
 
-      // useEffect(() => {
-      //   if(!token) {
-      //     return
-      //   }
-      //   axios.get('http://localhost:8080/api/users/bytoken', {
-      //     headers: {
-      //       Authorization: `Bearer ${token}`,
-      //     },
-      //   })
-      //   .then((res) => {
-      //     setUserData(res.data);
-      //   })
-      //   .catch((error) => {
-      //     console.error(error);
-      //   });
-      // }, [token])
-
-      
-
-    
-
 
 
 
 
   return (
-    <UserContext.Provider value={{ token, setToken, userData, setUserData, getUserData }} >
+    <UserContext.Provider value={{ token, setToken, userData, setUserData, getUserData, setGender, gender, setSelectedSort ,selectedSort }} >
         {/* all children can access this data */}
         { children }
     </UserContext.Provider>

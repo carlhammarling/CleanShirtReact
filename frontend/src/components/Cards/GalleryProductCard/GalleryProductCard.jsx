@@ -14,7 +14,7 @@ const GalleryProductCard = ({ product }) => {
       <div className="prodBot">
         <h2>CLEAN SHiRT - {product.name}.</h2>
         <p>XS S M L XL XXL</p>
-        <p className="price">{product.price}.00€</p>
+        <p className={`price ${product.price < 15 ? 'red' : ''}`}>{product.price}.00€</p>
       </div>
       </Link>
     </div>

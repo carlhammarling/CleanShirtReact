@@ -95,7 +95,9 @@ const ProductDetails = () => {
       <article className="oneProduct">
         <img src={oneProduct.imgURL} alt={oneProduct.name} />
         {/* <!-- CONTENT --> */}
-            <Link className="goBack" onClick={goBack}>Tillbaka</Link>
+        <div className="roundBtn">
+            <Link className="goBack" onClick={goBack}><i class="fa-solid fa-chevron-left"></i></Link>
+        </div>
         <section id="productInfo">
           <h2>
             {`${oneProduct.name.toUpperCase()} - ${oneProduct.description.slice(

@@ -1,4 +1,4 @@
-import React from "react";
+import {} from "react";
 import "./Home.scss";
 import YellowHomeBanner from "../../components/Banners/YellowHomeBanner/YellowHomeBanner";
 import Categories from "../../components/menus/Categories/Categories";
