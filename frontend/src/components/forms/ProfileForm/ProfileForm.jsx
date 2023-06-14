@@ -156,7 +156,7 @@ const ProfileForm = ({ setShowEdit }) => {
         </button>
       ) : (
         <button className="btnShop" id="send">
-          UPDATE PROFILE
+          UPDATE PROFILE <i className="fa-solid fa-user"></i>
         </button>
       )}
     </form>
