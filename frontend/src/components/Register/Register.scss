@@ -2,7 +2,6 @@
 @import "../../styles/variables";
 
 .registerForm {
-
     @media (min-width: 800px) {
         @include mixin.flex(row, center, stretch);
         gap: 20px;
@@ -22,8 +21,7 @@
         }
 
         button {
-            position: absolute;
-            bottom: 0;
+            
             padding: .8em;
             font-size: .8em;
         }

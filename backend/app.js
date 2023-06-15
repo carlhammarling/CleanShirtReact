@@ -8,7 +8,7 @@ app.use(cors())
 
 
 //Open to be able to run frontend
-// app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/public'))
 app.use('/api/products', require('./controllers/productsController'))
 app.use('/api/users', require('./controllers/userController'))
 app.use('/api/cart', require('./controllers/cartController'))

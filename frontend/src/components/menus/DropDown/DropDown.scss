@@ -11,11 +11,12 @@
 
 
   .dropDownMenu {
-    position: fixed;
+    position: absolute;
+    top: 0;
     @include mixin.flex(column, flex-start, flex-end);
     padding: 2rem;
     gap: 1rem;
-    height: 100dvh;
+    height: 100vh;
     margin: auto;
     background-color: white;
     width: 85vw;
@@ -76,7 +77,7 @@
   transition: 0.3s ease-in-out;
 }
 .dropDownMenu.inactive {
-  transform: translate(-80dvh);
+  transform: translate(-80vh);
   transition: 0.3s ease-in-out;
 }
 
