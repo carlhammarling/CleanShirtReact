@@ -43,7 +43,7 @@ const ProfileForm = ({ setShowEdit }) => {
     }
     //If it has updates, do the patch
     axios
-      .patch("http://localhost:8080/api/users/update", updatedProfile, {
+      .patch("/api/users/update", updatedProfile, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

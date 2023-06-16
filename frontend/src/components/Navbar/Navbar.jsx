@@ -20,7 +20,7 @@ const Navbar = () => {
 
 
   const fetchData = (value) => {
-    axios.get("http://localhost:8080/api/products")
+    axios.get("/api/products")
     .then((res) => {
       const results = res.data.filter((data) => {
         const categoryMatches = data.category && data.category.some((category) => {

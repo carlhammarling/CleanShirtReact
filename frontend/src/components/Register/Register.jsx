@@ -55,7 +55,7 @@ const Register = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8080/api/users/register",
+        "/api/users/register",
         formData
       );
       if (res.data) {

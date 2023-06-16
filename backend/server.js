@@ -1,14 +1,15 @@
-const app = require('./app')
-const mongoose = require('mongoose')
-require('dotenv').config()
+const app = require('./app');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-PORT = process.env.PORT
-MONGO_URI = process.env.MONGO_URI
-
-app.listen(PORT, () => console.log('http://localhost:' + PORT))
+const PORT = process.env.PORT || 8080;
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(MONGO_URI)
-    .then(console.log('connected to DB'))
-    .catch((err) => console.log(err.message))
-
-
+  .then(() => {
+    console.log('Connected to DB');
+    app.listen(PORT, () => {
+      console.log('Server listening on http://localhost:' + PORT);
+    });
+  })
+  .catch((err) => console.log(err.message));
