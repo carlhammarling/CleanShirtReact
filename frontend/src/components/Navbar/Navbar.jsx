@@ -21,6 +21,7 @@ const Navbar = () => {
 
   const fetchData = (value) => {
     axios.get("/api/products")
+    // axios.get("http://localhost:8080/api/products")
     .then((res) => {
       const results = res.data.filter((data) => {
         const categoryMatches = data.category && data.category.some((category) => {
@@ -98,7 +99,7 @@ const Navbar = () => {
         <div className="logo">
           <i className="fa-solid fa-magnifying-glass fa-lg"></i>
         </div>
-        <input type="text" placeholder="Search" value={input} onChange={(e) => handleChange(e.target.value)} />
+        <input type="search" placeholder="Search" value={input} onChange={(e) => handleChange(e.target.value)} />
       </div>
         <DropDown setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
     </header>

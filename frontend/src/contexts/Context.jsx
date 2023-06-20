@@ -46,11 +46,6 @@ const ContextProvider = ({ children }) => {
 
 
 
-
-
-
-
-
   return (
     <Context.Provider value={{ token, setToken, userData, setUserData, getUserData, setGender, gender, setSelectedSort ,selectedSort }} >
         {/* all children can access this data */}

@@ -1,4 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import profileImg from "../../styles/images/profile.png";
+import getContact from "../../styles/images/getContact.png";
+
 import "./Contact.scss";
 
 const Contact = () => {
@@ -7,69 +11,80 @@ const Contact = () => {
       {/* <!--TOPIMG--> */}
       <article className="contactBanner">
         <img
-          src="https://images.pexels.com/photos/3757144/pexels-photo-3757144.jpeg?auto=compress&cs=tinysrgb&w=1600"
-          alt="Clean Shirt HQ"
+          className="profileImg"
+          src={profileImg}
+          alt="Carl Hammarling"
           style={{ width: "100%" }}
         />
-        <section className="slogan border">
-          <h1 className="medium white">VISIT OUR HEADQUARTER</h1>
-          <h1 className="light white">
-            IN SANTO DOMINGO
-            <br />
-            <span className="black">CLEAN SHiRT!</span>
-          </h1>
+        <section className="slogan">
+          <h1 className="carl">Hi! I am Carl.</h1>
+          <h2>And I built this website.</h2>
+          {/* <h3 className="light">DO YOU WANT TO GET IN CONTACT?</h3> */}
+          <img
+            id="getContact"
+            src={getContact}
+            alt=""
+            style={{ width: "90%" }}
+          />
+          <Link
+            to="https://www.linkedin.com/in/carl-hammarling-66b084229/"
+            className="getInContact"
+            target="_blank"
+          >
+            <p>Message me on </p>
+            <span className="bold">
+              Linked in <i className="fa-solid fa-paper-plane fa-xs"></i>
+            </span>
+          </Link>
         </section>
       </article>
 
       {/* <!-- ARTICLES --> */}
       <article className="contactInfo">
-        <section>
-          <h1>Where to find us.</h1>
-          <p>Clean Shirt International LTD</p>
-          <p>Calle de Cruz 420, Santo Domingo, Republica Dominicana</p>
-          <p>Phone: +1-809-792-0442</p>
-        </section>
-        <section>
-          <h2>Get in touch:</h2>
-
-          <form id="contact">
-            <div id="msgForm" className="form">
-              <div className="input-group">
-                <label className="label" htmlFor="msg">
-                  Message:
-                </label>
-                <textarea className="input" id="msg" rows="30" cols="10"></textarea>
-              </div>
-              <div className="input-group">
-                <label className="label" htmlFor="name">
-                  Full Name:
-                </label>
-                <input className="input" type="text" id="name" />
-              </div>
-              <div className="input-group">
-                <label className="label" htmlFor="email">
-                  Email:
-                </label>
-                <input className="input" type="email" id="email" />
-              </div>
-              <div className="input-group">
-                <label className="label" htmlFor="category">
-                  Category:
-                </label>
-                <select className="input" name="category" id="category">
-                  <option selected disabled hidden value="category">
-                    Choose a category
-                  </option>
-                  <option value="company">Company Questions</option>
-                  <option value="products">Product Questions</option>
-                  <option value="complaints">Website Complaints</option>
-                </select>
-              </div>
-              <button className="btnShop" id="send">
-                SEND REQUEST <i className="fa-solid fa-paper-plane"></i>
-              </button>
+        <section className="top">
+          <h1>Techniques I have used.</h1>
+          <div className="techGrid">
+            <div className="techniques">
+              <i class="fa-brands fa-react fa-2xl"></i>
+              <p>React</p>
             </div>
-          </form>
+            <div className="techniques">
+              <i class="fa-brands fa-node fa-2xl"></i>
+              <p>Node.js</p>
+            </div>
+            <div className="techniques">
+              <i class="fa-brands fa-sass fa-2xl"></i>
+              <p>Sass</p>
+            </div>
+            <div className="techniques">
+              <img
+                src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/4JKMdVVzNFkhE3fd4FiPOL/b322e6e99ab9b3fbe5ffd0100e2d7b47/Axios-twitter-og.png"
+                alt=""
+                style={{ width: "100%" }}
+              />
+              <p>Axios</p>
+            </div>
+            <div className="techniques">
+              <img
+                src="https://geekflare.com/wp-content/uploads/2023/01/expressjs.png"
+                alt=""
+                style={{ width: "100%" }}
+              />
+              <p>Express.js</p>
+            </div>
+            <div className="techniques">
+              <img
+                src="https://webimages.mongodb.com/_com_assets/cms/kuyjf3vea2hg34taa-horizontal_default_slate_blue.svg?auto=format%252Ccompress"
+                alt=""
+                style={{ width: "100%" }}
+              />
+              <p>MongoDB</p>
+            </div>
+            <div className="techniques">
+              <i className="fa-brands fa-html5 fa-2xl"></i>
+              <p>HTML</p>
+            </div>
+          </div>
         </section>
       </article>
     </main>
