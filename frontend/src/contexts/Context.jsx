@@ -7,7 +7,7 @@ const ContextProvider = ({ children }) => {
 
       const [token, setToken] = useState(null)
 
-      const [userData, setUserData] = useState()
+      const [userData, setUserData] = useState(null)
 
       const [gender, setGender] = useState(false);
 
@@ -23,6 +23,7 @@ const ContextProvider = ({ children }) => {
 
     axios
       .get('/api/users/bytoken', {
+      // .get('http://localhost:8080/api/users/bytoken', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

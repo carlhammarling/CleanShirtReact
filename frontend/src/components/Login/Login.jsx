@@ -36,6 +36,7 @@ const Login = () => {
     try {
       const res = await axios.post(
         "/api/users/login",
+        // "http://localhost:8080/api/users/login",
         formData
       );
       if (res.data) {
@@ -54,7 +55,7 @@ const Login = () => {
     } catch (err) {
       if (err.response.status == 401) {
         console.log("Wrong email or password");
-        setError("Wrong email or password");
+        setError("Wrong email or password.");
       }
     }
   };
@@ -93,7 +94,13 @@ const Login = () => {
           required
         />
 
-        <p className="error">{error}</p>
+        {error ? (
+          <div className="">
+            <p className="error">{error}</p>
+          </div>
+        ) : (
+          <></>
+        )}
 
         <button>
           LOGIN <i className="fa-solid fa-user"></i>

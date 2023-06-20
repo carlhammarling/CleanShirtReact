@@ -45,19 +45,25 @@ const Register = () => {
     }
 
     //Reg-ex to ensure that password follows certarin standards.
-    const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    if (pattern.test(formData.password) == false) {
+    const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@#$%^&+=!-]{8,}$/;
+    if (!pattern.test(formData.password)) {
       setError(
-        "The password must be at least 8 characters long and contain both letters and numbers."
+        "The password must be at least 8 characters long, contain both letters and numbers, and may include special characters."
       );
       return;
     }
 
+    // //Reg-ex to ensure that password follows certarin standards.
+    // const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    // if (pattern.test(formData.password) == false) {
+    //   setError(
+    //     "The password must be at least 8 characters long and contain both letters and numbers."
+    //   );
+    //   return;
+    // }
+
     try {
-      const res = await axios.post(
-        "/api/users/register",
-        formData
-      );
+      const res = await axios.post("/api/users/register", formData);
       if (res.data) {
         // //Setting user
         setToken(res.data);
@@ -152,7 +158,13 @@ const Register = () => {
           required
         />
 
-        <p className="error">{error}</p>
+        {error ? (
+          <div className="">
+            <p className="error">{error}</p>
+          </div>
+        ) : (
+          <></>
+        )}
 
         <button>
           REGISTER NEW USER <i className="fa-solid fa-user"></i>

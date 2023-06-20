@@ -21,6 +21,7 @@ const ProductDetails = () => {
   useEffect(() => {
     axios
       .get("/api/products/" + id)
+      // .get("http://localhost:8080/api/products/" + id)
       .then((res) => {
         setOneProduct(res.data);
       })

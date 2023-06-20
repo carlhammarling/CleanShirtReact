@@ -1,18 +1,24 @@
 import React, { useContext, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./Profile.scss";
-import ProductsBanner from "../../components/Banners/ProductsBanner/ProductsBanner";
 import DeliveryInfo from "../../components/DeliveryInfo/DeliveryInfo";
 import { Context } from "../../contexts/Context";
-import CartItem from "../../components/Cards/CartItem/CartItem";
 import UserOrders from "../../components/UserOrders/UserOrders";
 import YellowHomeBanner from "../../components/Banners/YellowHomeBanner/YellowHomeBanner";
 
 const Profile = () => {
-  const { userData } = useContext(Context);
+  const { userData, setToken, setUserData } = useContext(Context);
+  const navigate = useNavigate()
 
   if (!userData) {
     return <Navigate to="/signin" />;
+  }
+
+  const logOut = () => {
+    setToken(null)
+    setUserData(null)
+    localStorage.removeItem('token')
+    navigate('/')
   }
 
   return (
@@ -27,6 +33,7 @@ const Profile = () => {
             Hi {userData.firstName} {userData.lastName}! Here you can update you
             delivery info, find your orders and leave reviews on products.
           </h4>
+          <button  className='logOut' onClick={logOut}>SIGN OUT</button>
         </section>
         <DeliveryInfo />
         <UserOrders shoppingCart={userData.shoppingCart} />

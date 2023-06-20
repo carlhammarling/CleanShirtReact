@@ -21,6 +21,7 @@ const Products = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get("/api/products");
+        // const res = await axios.get("http://localhost:8080/api/products");
         setProducts(res.data);
         setIsLoading(false);
       } catch (err) {
@@ -123,7 +124,7 @@ const Products = () => {
             onChange={handleSortChange}
           >
             <option disabled value="">
-              Sort
+              Sort Products 
             </option>
             <option value="ascending">Price (Low to High)</option>
             <option value="descending">Price (High to Low)</option>

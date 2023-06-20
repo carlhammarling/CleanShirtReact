@@ -13,6 +13,8 @@
 
     form {
         @include mixin.form;
+        display: flex;
+        flex-direction: column;
 
         #category {
             padding: 0 0.3rem;
@@ -20,6 +22,14 @@
         label {
             font-family: 'Abel', sans-serif; 
         }
+
+        .error {
+            background-color: $lightRed;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0.3rem;
+
+          }
 
         button {
             position: absolute;

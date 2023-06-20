@@ -10,6 +10,17 @@
     display: grid;
     gap: 0.5rem;
 
+
+    .logOut {
+      @include mixin.bigAddBtn;
+      background-color: $red;
+      width: 100%;
+      margin-top: 1rem;
+
+      &:hover {
+        background-color: $darkGrey;
+      }
+    }
     section {
       border-bottom: 1px solid $grey;
 

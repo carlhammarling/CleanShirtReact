@@ -13,8 +13,8 @@ const OrderSuccess = () => {
 
         <h2>Your order is on its way!</h2>
         <h4>
-          Since this is a demo site I sugest you go your user page where you can
-          view your orders and also leave a review for the products that you
+          Since this is a demo site I suggest you go to your user page where you can
+          view your orders, and also leave a review for the products that you
           have bought.
         </h4>
       </section>

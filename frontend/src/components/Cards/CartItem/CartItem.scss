@@ -12,7 +12,7 @@
     height: 150px;
     object-fit: cover;
     transition: 0.2s ease-in-out;
-    
+
     &:hover {
       opacity: 0.85;
     }
@@ -26,17 +26,30 @@
       gap: 0.5rem;
 
       .qtySelect {
-        @include mixin.flex(row, space-between, center);
+        @include mixin.flex(row, space-between, stretch);
+        border: 1px solid $darkGrey;
+        height: 26px;
 
-        p.qty {
-          border-block: 1px solid $medGrey;
-          padding: 0.2rem 0.5rem;
-          line-height: 1;
+
+
+        .qty {
+          border-inline: 1px solid $darkGrey;
+          font-family: 'Inter', sans-serif;
+          display: flex;
+          align-items: center;
+          width: 26px;
+
+          padding: 0rem 0.5rem;
         }
         button {
-          border: 1px solid $medGrey;
+          display: flex;
+          width: 26px;
+          justify-content: center;
+          align-self: center;
           background-color: transparent;
-          padding: 0.2rem 0.4rem;
+          // padding: 0.2rem 0.5rem;
+          border: 0;
+          color: $darkGrey;
         }
       }
     }
