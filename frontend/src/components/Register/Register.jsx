@@ -53,14 +53,6 @@ const Register = () => {
       return;
     }
 
-    // //Reg-ex to ensure that password follows certarin standards.
-    // const pattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    // if (pattern.test(formData.password) == false) {
-    //   setError(
-    //     "The password must be at least 8 characters long and contain both letters and numbers."
-    //   );
-    //   return;
-    // }
 
     try {
       const res = await axios.post("/api/users/register", formData);
@@ -105,8 +97,7 @@ const Register = () => {
   return (
     <div className="registerForm">
       <form onSubmit={handleSubmit}>
-        <p>Please register a new account.</p>
-        <br />
+        <h2 className="instructions light">Please register a new account.</h2>
 
         <label htmlFor="firstName">First Name*</label>
         <input

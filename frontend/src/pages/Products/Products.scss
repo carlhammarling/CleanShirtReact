@@ -17,7 +17,7 @@
     .editBtn {
       @include mixin.editBtn;
       min-width: 100px;
-    
+
       &.active {
         background-color: $green;
         color: white;
@@ -29,7 +29,7 @@
     height: 0;
     background-color: transparent;
   }
-  
+
   .categorySelect::-webkit-scrollbar-thumb {
     background-color: transparent;
   }
@@ -58,7 +58,7 @@
   .sortDropdown {
     @include mixin.form;
     width: 300px;
-     select {
+    select {
       height: min-content;
       text-align: center;
       border: 0;
@@ -67,7 +67,7 @@
       background-color: transparent;
       padding: 0 0.3rem;
       margin: 0;
-     }
+    }
   }
 
   .prodWrap {

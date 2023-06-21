@@ -22,8 +22,8 @@ const ContextProvider = ({ children }) => {
     }
 
     axios
-      .get('/api/users/bytoken', {
-      // .get('http://localhost:8080/api/users/bytoken', {
+      // .get('/api/users/bytoken', {
+      .get('http://localhost:8080/api/users/bytoken', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

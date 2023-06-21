@@ -20,8 +20,8 @@ const Products = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("/api/products");
-        // const res = await axios.get("http://localhost:8080/api/products");
+        // const res = await axios.get("/api/products");
+        const res = await axios.get("http://localhost:8080/api/products");
         setProducts(res.data);
         setIsLoading(false);
       } catch (err) {
@@ -150,27 +150,12 @@ const Products = () => {
         <article className="prodWrap">
           {filteredProducts &&
             filteredProducts
-              .slice(0, 6)
               .map((product) => (
                 <GalleryProductCard key={product._id} product={product} />
               ))}
         </article>
       )}
-      {filteredProducts.length >= 6 ? (
-        <SelectedProduct2 gender={gender} setGender={setGender} />
-      ) : (
-        <></>
-      )}
-      {/* Grid system for products */}
-
-      <article className="prodWrap">
-        {filteredProducts &&
-          filteredProducts
-            .slice(6, 12)
-            .map((product) => (
-              <GalleryProductCard key={product._id} product={product} />
-            ))}
-      </article>
+     
     </main>
   );
 };

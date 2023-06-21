@@ -20,8 +20,8 @@ const ProductDetails = () => {
   //Loads the selected product to the page
   useEffect(() => {
     axios
-      .get("/api/products/" + id)
-      // .get("http://localhost:8080/api/products/" + id)
+      // .get("/api/products/" + id)
+      .get("http://localhost:8080/api/products/" + id)
       .then((res) => {
         setOneProduct(res.data);
       })
@@ -94,11 +94,16 @@ const ProductDetails = () => {
     // <!-- MAIN CONTENT  -->
     <main className="productDetails">
       <article className="oneProduct">
+        <div className="left">
         <img src={oneProduct.imgURL} alt={oneProduct.name} />
         {/* <!-- CONTENT --> */}
         <div className="roundBtn">
             <Link className="goBack" onClick={goBack}><i class="fa-solid fa-chevron-left"></i></Link>
         </div>
+
+        </div>
+        <div className="right">
+          
         <section id="productInfo">
           <h2>
             {`${oneProduct.name.toUpperCase()} - ${oneProduct.description.slice(
@@ -170,6 +175,7 @@ const ProductDetails = () => {
             </reviews>
           </section>
         )}
+        </div>
       </article>
     </main>
   );

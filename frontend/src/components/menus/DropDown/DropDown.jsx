@@ -83,17 +83,27 @@ const DropDown = ({ setToggleMenu, toggleMenu }) => {
               program.
             </p>
             <div className="connect">
-              <a href="https://www.linkedin.com/in/carl-hammarling-66b084229/" target="_blank" onClick={handleLinkClick}>
-              <i className="fa-brands fa-linkedin blue"></i>
+              <a
+                href="https://www.linkedin.com/in/carl-hammarling-66b084229/"
+                target="_blank"
+                onClick={handleLinkClick}
+              >
+                <i className="fa-brands fa-linkedin blue"></i>
               </a>
-              <a href="https://github.com/carlhammarling" target="_blank" onClick={handleLinkClick}>
-              <i className="fa-brands fa-square-github"></i>
-
+              <a
+                href="https://github.com/carlhammarling"
+                target="_blank"
+                onClick={handleLinkClick}
+              >
+                <i className="fa-brands fa-square-github"></i>
               </a>
-              <a href="https://wa.me/46793393457" target="_blank" onClick={handleLinkClick}>
-              <i className="fa-brands fa-square-whatsapp green"></i>
+              <a
+                href="https://wa.me/46793393457"
+                target="_blank"
+                onClick={handleLinkClick}
+              >
+                <i className="fa-brands fa-square-whatsapp green"></i>
               </a>
-              
             </div>
           </section>
         </div>

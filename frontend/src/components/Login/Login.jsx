@@ -35,8 +35,8 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "/api/users/login",
-        // "http://localhost:8080/api/users/login",
+        // "/api/users/login",
+        "http://localhost:8080/api/users/login",
         formData
       );
       if (res.data) {
@@ -71,9 +71,10 @@ const Login = () => {
   return (
     <div className="loginForm">
       <form onSubmit={handleSubmit}>
-        <p>Allready have an account? Sign in!</p>
-        <br />
-
+        <h2 className="instructions light">
+          Allready have an account? Sign in!
+        </h2>
+        <div className="formInputs">
         <label htmlFor="email">Email:</label>
         <input
           type="email"
@@ -93,6 +94,7 @@ const Login = () => {
           onChange={handleChange}
           required
         />
+        </div>
 
         {error ? (
           <div className="">

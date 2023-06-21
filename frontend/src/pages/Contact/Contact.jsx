@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import profileImg from "../../styles/images/profile.png";
 import getContact from "../../styles/images/getContact.png";
 
 import "./Contact.scss";
@@ -12,7 +11,7 @@ const Contact = () => {
       <article className="contactBanner">
         <img
           className="profileImg"
-          src={profileImg}
+          src="https://i.postimg.cc/DZXcCRMw/profile.png"
           alt="Carl Hammarling"
           style={{ width: "100%" }}
         />

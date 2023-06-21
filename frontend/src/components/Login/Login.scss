@@ -2,7 +2,6 @@
 @import "../../styles/variables";
 
 .loginForm {
-
     @media (min-width: 800px) {
         @include mixin.flex(row, center, stretch);
         gap: 20px;
@@ -15,6 +14,13 @@
         @include mixin.form;
         display: flex;
         flex-direction: column;
+
+        .instructions {
+            padding-block: 1rem;
+            border-bottom: 1px solid $grey;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
 
         #category {
             padding: 0 0.3rem;
@@ -30,8 +36,6 @@
           }
 
         button {
-            position: absolute;
-            bottom: 0;
             padding: .8em;
             font-size: .8em;
         }
