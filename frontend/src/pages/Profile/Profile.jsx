@@ -26,8 +26,8 @@ const Profile = () => {
       <YellowHomeBanner />
       <article className="myAccount">
         <section className="accountInfo">
-          <h1>
-            My account <i className="fa-solid fa-user fa-sm"></i>
+          <h1><span><i className="fa-solid fa-angles-right fa-xs"></i></span>
+            My account <i className="fa-solid fa-user fa-sm"></i><span><i className="fa-solid fa-angles-left fa-xs"></i></span> 
           </h1>
           <h4>
             Hi {userData.firstName} {userData.lastName}! Here you can update you
