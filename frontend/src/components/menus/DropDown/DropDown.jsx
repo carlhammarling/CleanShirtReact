@@ -13,6 +13,10 @@ const DropDown = ({ setToggleMenu, toggleMenu }) => {
     }
   };
 
+  const handleLinkClick = (e) => {
+    e.stopPropagation(); // Stop the event from further propagation
+  };
+
   return (
     <div
       className={`menuWrapper ${toggleMenu ? "active" : "inactive"}`}
@@ -45,14 +49,12 @@ const DropDown = ({ setToggleMenu, toggleMenu }) => {
               <DropDownItem
                 link={"/profile"}
                 icon={<i className="fa-solid fa-user fa-xs"></i>}
-
                 text={"Profile"}
                 setToggleMenu={setToggleMenu}
               />
               <DropDownItem
                 link={"/cart"}
                 icon={<i className="fa-solid fa-cart-shopping fa-xs"></i>}
-
                 text={"Cart"}
                 setToggleMenu={setToggleMenu}
               />
@@ -64,14 +66,36 @@ const DropDown = ({ setToggleMenu, toggleMenu }) => {
               />
             </ul>
           </nav>
-          <p>
-            Are you lean? Are you real? Then you should go clean! When you
-            choose Clean Shirt you choose an environmentaly friendly product
-            that brings back wealth to the comunity where it is produced. The
-            company shares are equally divided between all employees which means
-            that when the company grows, our employees benefits economically as
-            well. An attempt to make the world a little more fair.
-          </p>
+          <section className="aboutProject">
+            <h1>
+              <span>
+                <i className="fa-solid fa-angles-right fa-xs"></i>
+              </span>
+              About This Project
+              <span>
+                <i className="fa-solid fa-angles-left fa-xs"></i>
+              </span>
+            </h1>
+
+            <p>
+              Hi! My name is Carl, a frontend developer student with fullstack
+              ambitions. I just completed the first year of KYH's 2 year
+              program.
+            </p>
+            <div className="connect">
+              <a href="https://www.linkedin.com/in/carl-hammarling-66b084229/" target="_blank" onClick={handleLinkClick}>
+              <i className="fa-brands fa-linkedin blue"></i>
+              </a>
+              <a href="https://github.com/carlhammarling" target="_blank" onClick={handleLinkClick}>
+              <i className="fa-brands fa-square-github"></i>
+
+              </a>
+              <a href="https://wa.me/46793393457" target="_blank" onClick={handleLinkClick}>
+              <i className="fa-brands fa-square-whatsapp green"></i>
+              </a>
+              
+            </div>
+          </section>
         </div>
       </div>
     </div>

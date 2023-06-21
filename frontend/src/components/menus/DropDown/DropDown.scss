@@ -9,7 +9,6 @@
   background-color: rgba(0, 0, 0, 0.244);
   backdrop-filter: blur(2px);
 
-
   .dropDownMenu {
     position: absolute;
     top: 0;
@@ -48,6 +47,45 @@
         }
       }
 
+      section.aboutProject {
+        display: grid;
+        place-items: center;
+        margin-top: 3rem;
+        border-radius: 0.3rem;
+        text-align: center;
+        gap: 1rem;
+
+        @media (min-width: 800px) {
+          padding: 0rem 2rem 2rem 2rem;
+        }
+
+        h1,
+        h2 {
+          background-color: $darkGrey;
+          color: white;
+          padding: 0rem 0.2rem;
+          letter-spacing: -2px;
+          box-shadow: rgba(99, 99, 99, 0.1) 0px 5px 8px 2px;
+        }
+        span {
+          color: $yellow;
+        }
+      }
+
+      .connect {
+        font-size: 3em;
+        display: flex;
+        gap: 1rem;
+        z-index: 2;
+
+        .blue {
+          color: #0e76a8;
+        }
+
+        .green {
+          color: #25D366;
+        }
+      }
     }
 
     button {
@@ -56,7 +94,6 @@
       border: 0;
       background-color: transparent;
     }
-    
   }
 }
 
@@ -80,4 +117,3 @@
   transform: translate(-80vh);
   transition: 0.3s ease-in-out;
 }
-

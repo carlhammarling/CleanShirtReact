@@ -60,7 +60,7 @@ const Contact = () => {
             My primary goal for this project was to develop a fully functional
             e-commerce website where you can view products, complete purchases,
             register users, browse previous orders, and even write reviews. To
-            start off, I decided to design it with a mobile-friendly approach.
+            start off, I decided to design it with a mobile-first approach.
           </p>
 
           <h2>
@@ -80,21 +80,21 @@ const Contact = () => {
         <section>
           <div className="techGrid">
             <div className="techniques">
-              <i class="fa-brands fa-react fa-2xl"></i>
+              <i className="fa-brands fa-react fa-2xl"></i>
               <p>
                 React - For my frontend I have used React including techniques
                 like Redux, Context and the new Browser Router.
               </p>
             </div>
             <div className="techniques">
-              <i class="fa-brands fa-node fa-2xl"></i>
+              <i className="fa-brands fa-node fa-2xl"></i>
               <p>
                 Node.js For my backend, with a variety of extensions to add
                 extra functionality and speeding up the development.
               </p>
             </div>
             <div className="techniques">
-              <i class="fa-brands fa-sass fa-2xl"></i>
+              <i className="fa-brands fa-sass fa-2xl"></i>
               <p>
                 Sass - I like to use Sass to be able to scope my css and create
                 mixins to re-use my code.
@@ -145,7 +145,7 @@ const Contact = () => {
               </p>
             </div>
             <div className="techniques">
-              {/* <i class="fa-brands fa-figma"></i> */}
+              {/* <i className="fa-brands fa-figma"></i> */}
               <img
                 src="https://seeklogo.com/images/J/jwt-logo-11B708E375-seeklogo.com.png"
                 alt=""
@@ -155,6 +155,7 @@ const Contact = () => {
                 logins.
               </p>
             </div>
+            
           </div>
         </section>
       </article>

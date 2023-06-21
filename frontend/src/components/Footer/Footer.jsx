@@ -31,6 +31,7 @@ const Footer = () => {
             </ul>
             <img src={cleanShirtLogo} alt="Clean Shirt Logo" width="120" />
             <p>Free shipping over 100€ |  Terms & Conditions Security & Cookies |  Sign up for our newspaper.</p>
+            
         </div>
         <div className="footBottom">
             
