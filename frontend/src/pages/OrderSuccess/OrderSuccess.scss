@@ -2,10 +2,19 @@
 @import "../../styles/variables";
 
 .emptyCart {
-    display: grid;
-    place-items: center;
+    
     line-height: 1.5;
     gap: 1rem;
+    @include mixin.flex(column, space-between, center);
+    min-height: 66vh;
+
+    
+    @media (min-width: 800px) {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
     
 
     .accountInfo {
@@ -17,8 +26,6 @@
 
     .bigAddBtn {
         @include mixin.bigAddBtn;
-        position: absolute;
-        bottom: 0;
         display: block;
         text-align: center;
         width: 100%;

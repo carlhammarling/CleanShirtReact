@@ -80,6 +80,8 @@ const Navbar = () => {
               <img src={cleanShirtLogo} alt="Clean Shirt Logo" width="130" />
             </NavLink>
           </div>
+          
+
         </div>
         <ul className="topRight">
           <li id="heart">

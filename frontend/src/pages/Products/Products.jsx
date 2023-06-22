@@ -99,6 +99,21 @@ const Products = () => {
     <main className="products">
       <ProductsBanner />
       <article className="categorySelect">
+        <div className="sortDropdown">
+          <select
+            id="sortSelect"
+            value={selectedSort}
+            onChange={handleSortChange}
+          >
+            <option disabled value="">
+              Sort Products 
+            </option>
+            <option value="ascending">Price (Low to High)</option>
+            <option value="descending">Price (High to Low)</option>
+            <option value="createdAtAscending">Date (Old to New)</option>
+            <option value="createdAtDescending">Date (New to Old)</option>
+          </select>
+        </div>
         <button
           className={`editBtn ${!gender ? "active" : ""}`}
           onClick={() => {
@@ -117,21 +132,23 @@ const Products = () => {
         >
           Men
         </button>
-        <div className="editBtn sortDropdown">
-          <select
-            id="sortSelect"
-            value={selectedSort}
-            onChange={handleSortChange}
-          >
-            <option disabled value="">
-              Sort Products 
-            </option>
-            <option value="ascending">Price (Low to High)</option>
-            <option value="descending">Price (High to Low)</option>
-            <option value="createdAtAscending">Date (Old to New)</option>
-            <option value="createdAtDescending">Date (New to Old)</option>
-          </select>
-        </div>
+        <button
+          className="editBtn"
+        >
+          More
+        </button>
+        <button
+          className="editBtn"
+        >
+          Categories
+        </button>
+        <button
+          className="editBtn"
+        >
+          Here
+        </button>
+       
+        
       </article>
       {filteredResults === undefined ||
         (filteredResults.length === 0 && (

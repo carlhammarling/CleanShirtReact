@@ -4,20 +4,32 @@
 .userOrders {
   display: grid;
   gap: 10px;
+
+  .orderWrapper {
+    @media (min-width: 800px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+
+      @media (min-width: 800px) {
+        gap: 3rem;
+      }
+    }
+  }
   .oneOrder {
     padding-inline: 10px;
     border-bottom: 1px solid $grey;
 
     &:last-child {
       border-bottom: 0;
-  }
+    }
     & > * {
       margin-block: 0.5rem;
       padding: 0.5rem;
     }
 
     & > :last-child {
-        border-bottom: 0;
+      border-bottom: 0;
     }
 
     .orderInfo {
@@ -27,6 +39,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
+    }
+
+    @media (min-width: 800px) {
+      border-bottom: 1px solid $grey;
     }
   }
 }

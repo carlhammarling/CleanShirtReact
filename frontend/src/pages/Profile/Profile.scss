@@ -2,31 +2,22 @@
 @import "../../styles/variables";
 
 .profile {
+
+  max-width: 800px;
+  margin: auto;
   .homeBanner .bottom {
     display: none;
   }
   article.myAccount {
     line-height: 1.5;
     display: grid;
-    gap: .5rem;
-    h1 {
-      background-color: $darkGrey;
-      color: white;
-      padding: 0rem 0.2rem;
-      letter-spacing: -2px;
-      box-shadow: rgba(99, 99, 99, 0.1) 0px 5px 8px 2px;
-      margin-bottom: 1rem;
-    }
-    span {
-      color: $yellow;
-    }
-
+    gap: 0.5rem;
+   
 
     .logOut {
       @include mixin.bigAddBtn;
       background-color: $red;
-      width: 100%;
-      margin-top: 1rem;
+      line-height: 1;
 
       &:hover {
         background-color: $darkGrey;
@@ -40,9 +31,12 @@
       }
     }
 
+    
     .accountInfo {
-      padding: 5rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      padding-block: 1rem;
+
     }
   }
 }

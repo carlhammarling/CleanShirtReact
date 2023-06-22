@@ -92,7 +92,8 @@ const Checkout = () => {
     }
 
     try {
-      const res = await axios.post("/api/cart", order, {
+      // const res = await axios.post("/api/cart", order, {
+      const res = await axios.post("http://localhost:8080/api/cart", order, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

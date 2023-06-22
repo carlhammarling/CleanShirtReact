@@ -16,7 +16,11 @@
 
     .editBtn {
       @include mixin.editBtn;
-      min-width: 100px;
+      display: flex;
+      justify-content: center;
+      // padding-inline: 2rem;
+      // min-width: 100px;
+      padding: 0.2rem 1rem;
 
       &.active {
         background-color: $green;
@@ -48,25 +52,29 @@
     font-size: 140%;
   }
   article {
-    // @include mixin.flex(column, flex-start, stretch);
 
     @media (min-width: 800px) {
-      margin-bottom: 20px;
     }
   }
 
   .sortDropdown {
     @include mixin.form;
-    width: 300px;
+    display: flex;
     select {
       height: min-content;
-      text-align: center;
-      border: 0;
+      width: 190px;
+      text-align: left;
       color: $medGrey;
-      background-image: none;
+      // background-image: none;
       background-color: transparent;
-      padding: 0 0.3rem;
       margin: 0;
+      // background-color: $grey;
+      line-height: 1.5;
+      font-size: 1rem;
+      padding: 0.2rem 1rem;
+      border: 1px solid $medGrey;
+      border-radius: 1rem;
+      cursor: pointer;
     }
   }
 

@@ -11,7 +11,7 @@ const Contact = () => {
       <article className="contactBanner">
         <img
           className="profileImg"
-          src="https://i.postimg.cc/DZXcCRMw/profile.png"
+          src="https://i.postimg.cc/VvJjy4MG/profile-1.png"
           alt="Carl Hammarling"
           style={{ width: "100%" }}
         />

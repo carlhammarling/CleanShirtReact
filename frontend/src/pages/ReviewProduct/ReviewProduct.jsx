@@ -71,15 +71,11 @@ const ReviewProduct = () => {
     }
 
     try {
-      const res = await axios.post(
-        "/api/comments",
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await axios.post("/api/comments", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       if (res.data) {
         setShowMsg(false);
         setSuccess(true);
@@ -101,93 +97,92 @@ const ReviewProduct = () => {
   return (
     // <!-- MAIN CONTENT  -->
     <main className="reviewProduct">
-      <article className="oneProduct">
-        <img src={oneProduct.imgURL} alt={oneProduct.name} />
-        {/* <!-- CONTENT --> */}
-        <section className="productInfo">
-          <h2>{`${oneProduct.name.toUpperCase()} - ${
-            oneProduct.description
-          }`}</h2>
-        </section>
+        <div className="left">
+          <img src={oneProduct.imgURL} alt={oneProduct.name} />
+        </div>
+        <div className="right">
+          {/* <!-- CONTENT --> */}
+          <section className="productInfo">
+            <h2>{`${oneProduct.name.toUpperCase()} - ${
+              oneProduct.description
+            }`}</h2>
+          </section>
 
-        {/* Review form */}
+          {/* Review form */}
 
-        <section className="leaveReview">
-          <form onSubmit={postReview}>
-            {/* Rating input */}
-            <div className="input-group">
-              {/* <label className="label" htmlFor="rating">
-                How many stars would you like to give this product?
-              </label> */}
-              <h3 className="stars">
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 1 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(1)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 2 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(2)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 3 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(3)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 4 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(4)}
-                ></i>
-                <i
-                  className={`fa-regular fa-star ${
-                    rating >= 5 ? "fa-solid" : ""
-                  }`}
-                  onClick={() => handleRating(5)}
-                ></i>
-              </h3>
-            </div>
-
-            <div className="input-group">
-              <label className="label" htmlFor="reviewMessage">
-                Review:
-              </label>
-              <textarea
-                className="input"
-                id="msg"
-                name="comment"
-                rows="30"
-                cols="10"
-                onChange={handleChange}
-                value={formData.comment}
-              ></textarea>
-            </div>
-            {showMsg ? (
-              <div className="chooseRating">
-                <p>
-                  Please choose a rating and write a review before submitting.
-                </p>
+          <section className="leaveReview">
+            <form onSubmit={postReview}>
+              {/* Rating input */}
+              <div className="input-group">
+                <h3 className="stars">
+                  <i
+                    className={`fa-regular fa-star ${
+                      rating >= 1 ? "fa-solid" : ""
+                    }`}
+                    onClick={() => handleRating(1)}
+                  ></i>
+                  <i
+                    className={`fa-regular fa-star ${
+                      rating >= 2 ? "fa-solid" : ""
+                    }`}
+                    onClick={() => handleRating(2)}
+                  ></i>
+                  <i
+                    className={`fa-regular fa-star ${
+                      rating >= 3 ? "fa-solid" : ""
+                    }`}
+                    onClick={() => handleRating(3)}
+                  ></i>
+                  <i
+                    className={`fa-regular fa-star ${
+                      rating >= 4 ? "fa-solid" : ""
+                    }`}
+                    onClick={() => handleRating(4)}
+                  ></i>
+                  <i
+                    className={`fa-regular fa-star ${
+                      rating >= 5 ? "fa-solid" : ""
+                    }`}
+                    onClick={() => handleRating(5)}
+                  ></i>
+                </h3>
               </div>
-            ) : (
-              <></>
-            )}
-            {success ? (
-              <button>
-                SUBMITTED <i className="fa-solid fa-circle-check"></i>
-              </button>
-            ) : (
-              <button>
-                SUBMIT REVIEW <i className="fa-solid fa-paper-plane"></i>
-              </button>
-            )}
-          </form>
-        </section>
-      </article>
+
+              <div className="input-group">
+                <label className="label" htmlFor="reviewMessage">
+                  Review:
+                </label>
+                <textarea
+                  className="input"
+                  id="msg"
+                  name="comment"
+                  rows="30"
+                  cols="10"
+                  onChange={handleChange}
+                  value={formData.comment}
+                ></textarea>
+              </div>
+              {showMsg ? (
+                <div className="chooseRating">
+                  <p>
+                    Please choose a rating and write a review before submitting.
+                  </p>
+                </div>
+              ) : (
+                <></>
+              )}
+              {success ? (
+                <button>
+                  SUBMITTED <i className="fa-solid fa-circle-check"></i>
+                </button>
+              ) : (
+                <button>
+                  SUBMIT REVIEW <i className="fa-solid fa-paper-plane"></i>
+                </button>
+              )}
+            </form>
+          </section>
+        </div>
     </main>
   );
 };

@@ -5,6 +5,12 @@
   article {
     line-height: 1.5;
 
+    @media (min-width: 800px) {
+      max-width: 800px;
+      margin: auto;
+      margin-bottom: 2rem;
+    }
+
     .myOrderList {
       .myOrderHeader {
         @include mixin.flex(row, space-between, center);
@@ -48,6 +54,12 @@
             opacity: 1;
             border: 2px solid $green;
           }
+
+          @media (min-width: 800px) { 
+            height: 70px;
+
+          }
+
         }
       }
     }
@@ -89,6 +101,7 @@
         text-align: center;
         width: 100%;
         margin-block: 0;
+        margin-top: 1rem;
       }
     }
   }

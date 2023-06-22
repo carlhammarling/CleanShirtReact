@@ -4,6 +4,8 @@
 .orderedProdCard {
   @include mixin.flex(column, flex-start, stretch);
 
+
+
   a {
     @include mixin.flex(column, flex-start, stretch);
   }
@@ -28,7 +30,8 @@
       }
 
       @media (min-width: 800px) {
-        height: 440px;
+        height: 200px;
+
       }
     }
 

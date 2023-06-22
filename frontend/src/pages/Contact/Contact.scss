@@ -112,9 +112,7 @@
 
       @media (min-width: 800px) {
         padding: 0rem 2rem 2rem 2rem;
-
       }
-
 
       h1,
       h2 {
@@ -144,9 +142,8 @@
       .techniques {
         // display: grid;
         background-color: white;
-        // place-items: center;
         @include mixin.flex(column, flex-start, center);
-text-align: center;
+        text-align: center;
         gap: 0.3rem;
         flex: 1;
         min-height: 200px;

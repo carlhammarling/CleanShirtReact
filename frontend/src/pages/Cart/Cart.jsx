@@ -23,7 +23,7 @@ const Cart = () => {
         <EmptyCart />
       ) : (
         <article id="output">
-          <h1>Shopping cart </h1>
+          <h1>Shopping cart <i className="fa-solid fa-cart-shopping fa-xs"></i></h1>
 
           <section id="cartList">
             {cart && 

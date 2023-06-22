@@ -20,6 +20,8 @@ header {
         place-items: center;
         width: 50px;
 
+        
+
         .dropDownBtn {
           color: white;
           transition: 200ms;
@@ -30,6 +32,9 @@ header {
           }
         }
       }
+
+
+      
     }
     .topRight {
       @include mixin.flex(row, flex-end, stretch);
@@ -74,6 +79,8 @@ header {
     @include mixin.flex(row, flex-start, stretch);
     background: white;
     transition: .2s ease;
+
+    
   }
   .search.scrolled {
     box-shadow: rgba(99, 99, 99, 0.1) 0px 10px 10px 0px;

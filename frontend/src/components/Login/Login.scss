@@ -4,16 +4,23 @@
 .loginForm {
     @media (min-width: 800px) {
         @include mixin.flex(row, center, stretch);
+       
         gap: 20px;
-        margin: 0 20px;
         font-size: 120%;
+
     };
 
 
     form {
         @include mixin.form;
-        display: flex;
-        flex-direction: column;
+        @include mixin.flex(column, space-between, stretch);
+        min-height: 56vh;
+
+        @media (min-width: 800px) {
+            min-height: 45vh;
+
+        }
+
 
         .instructions {
             padding-block: 1rem;
@@ -36,6 +43,7 @@
           }
 
         button {
+            margin-top: 1rem;
             padding: .8em;
             font-size: .8em;
         }

@@ -71,6 +71,7 @@ const Login = () => {
   return (
     <div className="loginForm">
       <form onSubmit={handleSubmit}>
+        <div>
         <h2 className="instructions light">
           Allready have an account? Sign in!
         </h2>
@@ -95,6 +96,7 @@ const Login = () => {
           required
         />
         </div>
+        </div>
 
         {error ? (
           <div className="">
@@ -103,6 +105,7 @@ const Login = () => {
         ) : (
           <></>
         )}
+        
 
         <button>
           LOGIN <i className="fa-solid fa-user"></i>

@@ -8,34 +8,36 @@ import YellowHomeBanner from "../../components/Banners/YellowHomeBanner/YellowHo
 
 const Profile = () => {
   const { userData, setToken, setUserData } = useContext(Context);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   if (!userData) {
     return <Navigate to="/signin" />;
   }
 
   const logOut = () => {
-    setToken(null)
-    setUserData(null)
-    localStorage.removeItem('token')
-    navigate('/')
-  }
+    setToken(null);
+    setUserData(null);
+    localStorage.removeItem("token");
+    navigate("/");
+  };
 
   return (
     <main className="profile">
       <YellowHomeBanner />
       <article className="myAccount">
-        <section className="accountInfo">
-          <h1><span><i className="fa-solid fa-angles-right fa-xs"></i></span>
-            My account <i className="fa-solid fa-user fa-sm"></i><span><i className="fa-solid fa-angles-left fa-xs"></i></span> 
-          </h1>
-          <h4>
-            Hi {userData.firstName} {userData.lastName}! Here you can update you
-            delivery info, find your orders and leave reviews on products.
-          </h4>
-          <button  className='logOut' onClick={logOut}>SIGN OUT</button>
-        </section>
-        <DeliveryInfo />
+          <section className="accountInfo">
+            <h1>
+              
+              My account <i className="fa-solid fa-user fa-sm"></i>
+              
+            </h1>
+            
+            <button className="logOut" onClick={logOut}>
+              SIGN OUT
+            </button>
+          </section>
+          <DeliveryInfo />
+
         <UserOrders shoppingCart={userData.shoppingCart} />
       </article>
     </main>

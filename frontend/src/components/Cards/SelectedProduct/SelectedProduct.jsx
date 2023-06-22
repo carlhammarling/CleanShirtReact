@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./SelectedProduct.scss";
+import { Context } from "../../../contexts/Context";
 
 const SelectedProduct = ({ item }) => {
+
+  const { setGender, setSelectedSort } = useContext(Context)
+
+  const categoryHandler = () => {
+    if(item.id % 2 == 0) {
+      setGender(true)
+      setSelectedSort("")
+    } else {
+      setGender(false)
+      setSelectedSort("")
+    }
+  }
   return (
-    <article id={item.id} className="shopNow">
+    <article id={item.id} className="shopNow" onClick={categoryHandler}>
       <Link className="blocklink" to="/products"></Link>
       <img
         src={item.imgURL}
