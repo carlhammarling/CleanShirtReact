@@ -1,10 +1,12 @@
 @use "../../styles/mixin";
 @import "../../styles/variables";
 
-.loginForm {
-    @media (min-width: 800px) {
-        @include mixin.flex(row, center, stretch);
-       
+.loginForm {    
+    flex: 1;
+    @include mixin.flex(column, space-between, stretch);
+
+
+    @media (min-width: 800px) {       
         gap: 20px;
         font-size: 120%;
 
@@ -14,7 +16,7 @@
     form {
         @include mixin.form;
         @include mixin.flex(column, space-between, stretch);
-        min-height: 56vh;
+        flex: 1;
 
         @media (min-width: 800px) {
             min-height: 45vh;
@@ -43,7 +45,6 @@
           }
 
         button {
-            margin-top: 1rem;
             padding: .8em;
             font-size: .8em;
         }

@@ -97,6 +97,7 @@ const Register = () => {
   return (
     <div className="registerForm">
       <form onSubmit={handleSubmit}>
+        <div>
         <h2 className="instructions light">Please register a new account.</h2>
 
         <label htmlFor="firstName">First Name*</label>
@@ -148,6 +149,7 @@ const Register = () => {
           onChange={handleChange}
           required
         />
+        </div>
 
         {error ? (
           <div className="">

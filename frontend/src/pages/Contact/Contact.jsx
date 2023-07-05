@@ -101,17 +101,6 @@ const Contact = () => {
             </div>
             <div className="techniques">
               <img
-                src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/4JKMdVVzNFkhE3fd4FiPOL/b322e6e99ab9b3fbe5ffd0100e2d7b47/Axios-twitter-og.png"
-                alt=""
-              />
-
-              <p>
-                Axios - To make HTTP requests and handling responses more
-                efficiently.
-              </p>
-            </div>
-            <div className="techniques">
-              <img
                 src="https://geekflare.com/wp-content/uploads/2023/01/expressjs.png"
                 alt=""
               />
@@ -134,10 +123,7 @@ const Contact = () => {
             </div>
 
             <div className="techniques">
-              <img
-                src="https://assets.stickpng.com/images/62c6bc0beee9410fe137d91e.png"
-                alt=""
-              />
+            <i class="fa-brands fa-figma fa-2xl"></i>
               <p>
                 Figma - Used for designing wireframes prior to transforming my
                 vision into reality.
@@ -152,6 +138,17 @@ const Contact = () => {
               <p>
                 Jason Web Token - For handling validation including registrations and
                 logins.
+              </p>
+            </div>
+            <div className="techniques">
+              <img
+                src="https://cf-assets.www.cloudflare.com/slt3lc6tev37/4JKMdVVzNFkhE3fd4FiPOL/b322e6e99ab9b3fbe5ffd0100e2d7b47/Axios-twitter-og.png"
+                alt=""
+              />
+
+              <p>
+                Axios - To make HTTP requests and handling responses more
+                efficiently.
               </p>
             </div>
             

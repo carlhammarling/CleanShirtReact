@@ -32,6 +32,7 @@ const Cart = () => {
           </section>
 
           <section id="checkout">
+            <div></div>
             <h2>Total</h2>
             <div className="priceSum">
               <p>Sub-total</p>
@@ -46,9 +47,12 @@ const Cart = () => {
               <p>{totAmount + delivery}.00 €</p>
             </div>
 
+          </section>
+          <section className="toCheckout">
             <Link className="bigAddBtn" to={"/checkout"}>
               GO TO CHECK OUT <i className="fa-solid fa-cart-shopping"></i>
             </Link>
+
           </section>
         </article>
       )}

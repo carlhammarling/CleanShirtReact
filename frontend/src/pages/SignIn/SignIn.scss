@@ -1,18 +1,18 @@
 @use "../../styles/mixin";
 @import "../../styles/variables";
 
-.signInWrapper {  
-
+.signInWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   @media (min-width: 800px) {
-    max-width: 800px;
-    margin: auto;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    width: 800px;
+    align-self: center;
+    margin-bottom: 20px;
   }
-  
+
   .signInBtns {
     display: flex;
-    
 
     .userNav {
       background-color: transparent;
@@ -29,11 +29,9 @@
       transition: 0.2s;
       color: $medGrey;
 
-
       &.active {
         border-bottom: 2px solid $green;
         color: $darkGrey;
-
       }
     }
   }

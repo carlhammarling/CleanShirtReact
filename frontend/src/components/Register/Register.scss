@@ -2,6 +2,8 @@
 @import "../../styles/variables";
 
 .registerForm {
+    flex: 1;
+    @include mixin.flex(column, space-between, stretch);
     @media (min-width: 800px) {
         @include mixin.flex(row, center, stretch);
         gap: 20px;
@@ -11,8 +13,10 @@
 
     form {
         @include mixin.form;
-        display: flex;
-        flex-direction: column;
+        @include mixin.flex(column, space-between, stretch);
+        flex: 1;
+
+
 
         .instructions {
             padding-block: 1rem;
@@ -36,7 +40,6 @@
           }
 
         button {
-            margin-top: 1rem;
             padding: .8em;
             font-size: .8em;
         }

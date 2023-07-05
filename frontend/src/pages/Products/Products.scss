@@ -3,13 +3,13 @@
 
 .products {
   @include mixin.flex(column, flex-start, stretch);
-  align-self: center;
+  // align-self: center;
   gap: 1rem;
 
   .categorySelect {
-    @include mixin.flex(row, space-between, center);
+    @include mixin.flex(row, flex-start, center);
     padding-inline: 10px;
-    padding-bottom: 0;
+    padding-bottom: 2px;
     margin-inline: -10px;
     overflow: scroll;
     gap: 1rem;
@@ -29,9 +29,11 @@
     }
   }
   .categorySelect::-webkit-scrollbar {
-    width: 0.1rem;
+    width: 0rem;
     height: 0;
+    color: transparent;
     background-color: transparent;
+    display: none;
   }
 
   .categorySelect::-webkit-scrollbar-thumb {
@@ -59,10 +61,12 @@
 
   .sortDropdown {
     @include mixin.form;
+    min-width: 190px;
+    max-width:300px;
+
     display: flex;
     select {
       height: min-content;
-      width: 190px;
       text-align: left;
       color: $medGrey;
       // background-image: none;

@@ -2,34 +2,33 @@
 @import "../../styles/variables";
 
 .noCart {
-    line-height: 1.5;
-    @include mixin.flex(column, space-between, center);
-    min-height: 66vh;
+  line-height: 1.5;
+  @include mixin.flex(column, space-between, center);
+  flex: 1;
+  @media (min-width: 800px) {
+    width: 800px;
+    margin-bottom: 20px;
+    font-size: 120%;
+  }
 
-    @media (min-width: 800px) {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .fa-cart-shopping {
+  .fa-cart-shopping {
     margin-bottom: 2rem;
+  }
+
+  .cartInfo {
+    padding: 5rem;
+    text-align: center;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .takeMeBack {
+    @include mixin.bigAddBtn;
+    display: block;
+    text-align: center;
+    width: 100%;
+    @media (min-width: 800px) {
+      // font-size: 120%;
     }
-    
-
-    .cartInfo {
-        padding: 5rem;
-        text-align: center;
-        display: grid;
-        gap: .5rem;
-      }
-
-    .takeMeBack {
-        @include mixin.bigAddBtn;
-        display: block;
-        text-align: center;
-        width: 100%;
-        // position: absolute;
-      }
+  }
 }

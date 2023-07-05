@@ -72,40 +72,38 @@ const Login = () => {
     <div className="loginForm">
       <form onSubmit={handleSubmit}>
         <div>
-        <h2 className="instructions light">
-          Allready have an account? Sign in!
-        </h2>
-        <div className="formInputs">
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+          <h2 className="instructions light">
+            Allready have an account? Sign in!
+          </h2>
+          <div className="formInputs">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
 
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        </div>
-        </div>
-
-        {error ? (
-          <div className="">
-            <p className="error">{error}</p>
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
           </div>
-        ) : (
-          <></>
-        )}
-        
+          {error ? (
+            <div className="">
+              <p className="error">{error}</p>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
 
         <button>
           LOGIN <i className="fa-solid fa-user"></i>

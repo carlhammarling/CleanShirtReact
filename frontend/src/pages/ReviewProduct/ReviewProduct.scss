@@ -4,7 +4,6 @@
 .reviewProduct {
     display: grid;
     gap: 1rem;
-    // justify-content: center;
     line-height: 1.5;
 
     @media (min-width: 800px) {
@@ -16,6 +15,12 @@
       max-width: 800px;
 
     }
+   
+    .right {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
     .productInfo {
       margin-block: .5rem;
@@ -26,13 +31,15 @@
     }
     img {
       width: 100%;
-      max-width: 600px;
+      // max-width: 600px;
       object-fit: cover;
-      height: 400px;
+      max-height: 400px;
       overflow: hidden;
       @media (min-width: 800px) {
         object-fit: cover;
-        height: 100%;
+        // height: 100%;
+        max-height: 600px;
+
       }
     }
 
@@ -44,7 +51,13 @@
  
 
     .leaveReview {
+      flex: 1;
+
       form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
         @include mixin.form;
         select {
           padding: 0 0.3rem;
@@ -64,6 +77,17 @@
           }
 
         }
+        .review {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+
+          textarea {
+            flex-grow: 1;
+          }
+
+        }
+        
       }
 
       .chooseRating {

@@ -148,7 +148,7 @@ const ReviewProduct = () => {
                 </h3>
               </div>
 
-              <div className="input-group">
+              <div className="input-group review">
                 <label className="label" htmlFor="reviewMessage">
                   Review:
                 </label>

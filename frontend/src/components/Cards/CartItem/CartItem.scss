@@ -8,10 +8,11 @@
   border-bottom: 1px solid $grey;
 
   img {
-    width: 120px;
-    height: 150px;
+    height: 9.5em;
+    width: 7.5em;
     object-fit: cover;
     transition: 0.2s ease-in-out;
+    flex-shrink: 0;
 
     &:hover {
       opacity: 0.85;
