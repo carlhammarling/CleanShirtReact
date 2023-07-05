@@ -20,8 +20,8 @@ const ProductDetails = () => {
   //Loads the selected product to the page
   useEffect(() => {
     axios
-      // .get("/api/products/" + id)
-      .get("http://localhost:8080/api/products/" + id)
+      .get("/api/products/" + id)
+      // .get("http://localhost:8080/api/products/" + id)
       .then((res) => {
         setOneProduct(res.data);
       })
